@@ -2,22 +2,21 @@
 include 'view/header.php';
 
 $error = null;
-$kategori = ['id' => null,'nama' => ''];
-
+$pengumuman = ['pengumuman' => '', 'tgl_berakhir' => ''];
 
 if(isset($_POST['submit'])){
   $pengumuman = $_POST['pengumuman'];
   $tglselesai = $_POST['tgl'];
   $id = $_POST['id'];
   if(isset($_POST['id'])){
-    $error = ubahKategori($id, $nama);
+    $error = ubahPengumuman($id, $pengumuman, $tglselesai);
   }else{
     $error = tambahPengumuman($pengumuman, $tglselesai);
   }
 }
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $kategori = getKategori($id);
+  $pengumuman = getPengumuman($id);
 }
 ?>
 
@@ -44,10 +43,13 @@ if(isset($_GET['id'])){
     <?= printError($error) ?>
     <div class="col-md-12">
       <form action="pengumuman_form.php" method="post">
+        <?php if(isset($_GET['id'])){?>
+            <input type="hidden" name="id" value="<?= $id ?>">
+        <?php } ?>
         <label class="control-label" for="tag-nama">Pengumuman</label>
-        <input type="text" class="form-control" name="pengumuman" aria-required="true" required>
+        <input type="text" class="form-control" name="pengumuman" aria-required="true" required value="<?= $pengumuman['pengumuman'] ?>">
         <label class="control-label" for="tag-nama">Tanggal Berakhir</label>
-        <input type="date" class="form-control" name="tgl" aria-required="true" required>
+        <input type="date" class="form-control" name="tgl" aria-required="true" required value="<?= $pengumuman['tgl_berakhir'] ?>">
         <div class="help-block"></div>
         
         <input type="submit" class="btn btn-primary btn-flat" name="submit" value="Simpan">

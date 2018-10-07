@@ -23,7 +23,7 @@ include 'view/header.php';
     <!-- Main content -->
     <section class="content">
       <?= printPesan(); ?>
-       <a href="kategori_form.php" class="btn btn-primary">Tambah Pengumuman</a>
+       <a href="pengumuman_form.php" class="btn btn-primary">Tambah Pengumuman</a>
         <table class="table table-striped table-bordered">
           <thead>
             <tr>
@@ -44,8 +44,8 @@ include 'view/header.php';
         <?php }else{ 
         foreach($pengumumans as $pengumuman ):?>
           <tr>
-            <td><?= $pengumuman['penumuman'] ?></td>
-            <td><?= $pengumuman['tgl_berakhir'] ?></td>
+            <td><?= $pengumuman['pengumuman'] ?></td>
+            <td><?= formatWaktu($pengumuman['tgl_berakhir']) ?></td>
             <td> 
               <a href="pengumuman_form.php?id=<?= $pengumuman['id_pengumuman'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
               <a href="hapus.php?table=pengumuman&key=id_pengumuman&id=<?= $pengumuman['id_pengumuman'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">

@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
   if(isset($_POST['id'])){
     $id = $_POST['id'];
     $gambar_lama = $_POST['gambar_lama'];
-    $error = ubahBerita($judul, $status, $gambar_lama, $gambar_baru, $isi, $kategori);
+    $error = ubahBerita($id, $judul, $status, $gambar_lama, $gambar_baru, $isi, $kategori);
   }else{
     $error = tambahBerita($judul, $status, $gambar_baru, $isi, $kategori);
   }
@@ -58,7 +58,7 @@ if(isset($_GET['id'])){
     <?= printError($error) ?>
     <div class="row">
     <div class="col-md-12">
-      <form action="berita_form.php" method="post" enctype="multipart/form-data">
+      <form action="berita_form.php?id=<?= $berita['id_post'] ?>" method="post" enctype="multipart/form-data">
         
         <?php if(isset($id)){ ?>
           <input type="hidden" class="form-control" name="id" aria-required="true" value="<?= $id ?>">

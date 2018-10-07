@@ -28,6 +28,7 @@ class Koneksi
 
     public function query($sql)
     {
+        $datas = [];
         $table = mysqli_query($this->koneksi, $this->cekString($sql));
         while($data = mysqli_fetch_assoc($table)){
             $datas[] = $data;

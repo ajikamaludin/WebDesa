@@ -52,17 +52,40 @@ function getBerita($id){
     return $data;
 }
 
-function ubahBerita($id, $nama){
+function ubahBerita($id, $judul, $status, $gambar_lama, $gambar_baru, $isi, $kategori){
     global $koneksi;
     $id = $koneksi->cekString($id);
-    $nama = $koneksi->cekString($nama);
-    if(!empty($nama)){
-        $sql = "UPDATE `kategori_post` SET `nama` = '$nama' WHERE `kategori_post`.`id_kategori` = '$id'";
-        if($koneksi->run($sql)){
-            $pesan = 'Berhasil Mengubah Kategori';
-            redirectKategori($pesan);
+    $judul = $koneksi->cekString($judul);
+    $status = $koneksi->cekString($status);
+    $isi = $koneksi->cekString($isi);
+    $kategori = $koneksi->cekString($kategori);
+
+    $slug = slug($judul);
+    $slug = $koneksi->cekString($slug);
+    if($gambar_baru['error'] != 4){
+        $gambar = uploadFiles($gambar_baru);
+        if($gambar == false){
+            $pesan = "Gagal Mengambil Gambar , Terjadi Kesalahan";
+            redirectBerita($pesan, true);
         }
     }else{
-        return "Nama Tidak Boleh Kosong";
+        $gambar = $gambar_lama;
+    }
+    
+    if(!empty($judul) && !empty($isi) &&!empty($kategori) &&!empty($slug) &&!empty($gambar)){
+        $sql = "UPDATE `post` SET 
+                `judul` = '$judul', 
+                `isi` = '$isi', 
+                `gambar` = '$gambar', 
+                `status` = '$status',
+                `id_kategori` = '$kategori', 
+                `slug` = '$slug' 
+                WHERE `post`.`id_post` = '$id'";
+        if($koneksi->run($sql)){
+            $pesan = 'Berhasil Mengubah Berita';
+            redirectBerita($pesan);
+        }
+    }else{
+        return "Tidak Boleh ada yang di Kosongkan";
     }
 }

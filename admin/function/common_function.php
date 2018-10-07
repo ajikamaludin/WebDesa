@@ -49,7 +49,10 @@ function getPengguna($id = null){
 
 }
 
-function printError($error){
+function printError($error, $mirror = true){
+    if($mirror == false){
+        return "<div class='col-md-12'><p class='alert alert-success'>".$error."</p></div>";
+    }
     if(!empty($error)){
         return "<div class='col-md-12'><p class='alert alert-danger'>".$error."</p></div>";
     }
@@ -61,7 +64,7 @@ function printPesan(){
         unset($_SESSION['pesan']);
         if(isset($_SESSION['error']) && $_SESSION['error'] == true){
             $_SESSION['error'] = false;
-            return "<div class='alert alert-danger'>". $pesan ."</div>";    
+            return "<div class='alert alert-danger'>". $pesan ."</div>";
         }
         return "<div class='alert alert-success'>". $pesan ."</div>";
     }
@@ -97,6 +100,10 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Pengguna';
                 header('Location: pengguna.php');
         }
+        if($table == 'upload_file'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Berkas';
+            header('Location: berkas.php');
+        }
     }
 }
 
@@ -131,26 +138,25 @@ function uploadFiles($file, $name = null){
 
         $filePath = $file['tmp_name'];
         $fileExtension = $file['type'];
-
-        $fileDotExtension = '.'.substr($fileExtension, 6 ,5);
         
-        $fileNameFinal = ($name != null) ? $name.$fileDotExtension : time().$fileDotExtension;
-        
-
         $allowedImage = ["image/jpeg","image/png","image/jpg"];
-        $allowedDoc = [];
+        $allowedDoc = ["application/pdf","application/msword","application/wps-office.doc","application/doc","application/docx","application/odt","application/rtf","application/xls","application/xlsx","application/ods","application/zip"];
         if(in_array($fileExtension, $allowedImage)){
+            $fileDotExtension = '.'.substr($fileExtension, 6 ,5);
+            $fileNameFinal = ($name != null) ? $name.$fileDotExtension : time().$fileDotExtension;
             $fileFinalPath = $storageImage.$fileNameFinal;
             if(move_uploaded_file($filePath, $fileFinalPath)){
                 return '/assets/uploads/gambar/'.$fileNameFinal;
             }
         }
-        // if(in_array($fileExtension, $allowedDoc)){
-        //     $fileFinalPath = $storageImage.$storageFile;
-        //     if(move_uploaded_file($filePath, $fileFinalPath)){
-        //         return $fileFinalPath;
-        //     }
-        // }
+        if(in_array($fileExtension, $allowedDoc)){
+            $fileDotExtension = '.'.substr($fileExtension, 12 ,5);
+            $fileNameFinal = ($name != null) ? $name.$fileDotExtension : time().$fileDotExtension;
+            $fileFinalPath = $storageFile.$fileNameFinal;
+            if(move_uploaded_file($filePath, $fileFinalPath)){
+                return '/assets/uploads/document/'.$fileNameFinal;
+            }
+        }
     }
 
     return false;

@@ -50,7 +50,7 @@ function tambahPengguna($nama, $email, $username, $password, $foto){
         $sql = "SELECT * FROM user WHERE email = '$email' OR username = '$username' ";
         $user = count($koneksi->query($sql));
         if($user > 0){
-            $pesan = 'Gagal Menambahkan Pengguna, Terjadi Kesalahan';
+            $pesan = 'Gagal Menambahkan Pengguna, Terjadi Kesalahan : Pada Gambar';
             redirectPengguna($pesan, true);
             return;
         }
@@ -80,7 +80,7 @@ function ubahPengguna($id, $nama, $email, $username, $foto, $foto_lama){
         $foto = uploadFiles($foto);
     
         if($foto == false || empty($foto)){
-            $pesan = 'Gagal Mengubah Pengguna, Terjadi Kesalahan';
+            $pesan = 'Gagal Mengubah Pengguna, Terjadi Kesalahan : Pada Gambar';
             redirectPengguna($pesan, true);
         }
     }

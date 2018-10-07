@@ -40,7 +40,7 @@ cekSession();
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="<?= strpos(getPageName(), 'index') ? 'active' : '' ?>"><a href="index.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li class="treeview <?= strpos(getPageName(), 'berita') ? 'active' : '' ?>">
+        <li class="treeview <?= (strpos(getPageName(), 'berita') || strpos(getPageName(), 'kategori')) ? 'active' : '' ?>">
           <a href="#">
             <i class="fa fa-file-text-o"></i> <span>Berita</span>
             <span class="pull-right-container">

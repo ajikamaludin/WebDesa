@@ -52,7 +52,7 @@ include 'view/header.php';
         <?php endforeach;  }?>
         </tbody>
       </table>
-      <?= $pagination->render(); ?>
+      <?= ($kategoris == null) ? '' : $pagination->render(); ?>
       </div>
     </section>
   </div>

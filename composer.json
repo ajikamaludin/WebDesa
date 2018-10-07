@@ -1,5 +1,6 @@
 {
     "require": {
-        "stefangabos/zebra_pagination": "^2.3"
+        "stefangabos/zebra_pagination": "^2.3",
+        "cocur/slugify": "^3.1"
     }
 }

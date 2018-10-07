@@ -9,14 +9,14 @@ if(isset($_POST['submit'])){
   $nama = $_POST['nama'];
   $id = $_POST['id'];
   if(isset($_POST['id'])){
-    $error = ubahKategori($id, $nama);
+    $error = ubahGaleri($id, $nama);
   }else{
-    $error = tambahKategori($nama);
+    $error = tambahGaleri($nama);
   }
 }
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $kategori = getKategori($id);
+  $galeri = getGaleri($id);
 }
 ?>
 
@@ -42,7 +42,7 @@ if(isset($_GET['id'])){
     <section class="content">
     <?= printError($error) ?>
     <div class="col-md-12">
-      <form action="kategori_form.php" method="post">
+      <form action="galeri_form.php" method="post">
         <label class="control-label" for="tag-nama">Nama</label>
         <?php if(isset($id)){ ?>
           <input type="hidden" class="form-control" name="id" aria-required="true" value="<?= $id ?>">

@@ -70,6 +70,13 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Berita';
             header('Location: berita.php');
         }
+        if($table == "galeri"){
+            $sql = "DELETE FROM `gambar_galeri` WHERE `id_galeri` = $id";
+            if($koneksi->run($sql)){
+                $_SESSION['pesan'] = 'Berhasil Menghapus Galeri';
+                header('Location: galeri.php');
+            }
+        }
     }
 }
 

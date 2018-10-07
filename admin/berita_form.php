@@ -58,7 +58,7 @@ if(isset($_GET['id'])){
     <?= printError($error) ?>
     <div class="row">
     <div class="col-md-12">
-      <form action="berita_form.php?id=<?= $berita['id_post'] ?>" method="post" enctype="multipart/form-data">
+      <form action="berita_form.php<?= (isset($id))  ? '?id='.$berita['id_post'] : '' ?>" method="post" enctype="multipart/form-data">
         
         <?php if(isset($id)){ ?>
           <input type="hidden" class="form-control" name="id" aria-required="true" value="<?= $id ?>">

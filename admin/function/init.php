@@ -9,3 +9,4 @@ include 'galeri_function.php';
 include 'pengguna_function.php';
 include 'berkas_function.php';
 include 'pengaturan_function.php';
+include 'pesan_function.php';

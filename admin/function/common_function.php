@@ -165,3 +165,7 @@ function uploadFiles($file, $name = null){
 
     return false;
 }
+
+function formatWaktu($datetime){
+    return date("F jS, Y", strtotime($datetime));
+}

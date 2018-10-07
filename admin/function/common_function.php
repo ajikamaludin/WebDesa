@@ -65,14 +65,14 @@ function hapusData($table,$key,$id){
     }
 }
 
-function pagination($data, $records_per_page = 5){
+function pagination($data, $records_per_page = 10){
     if($data == null){
         return null;
     }
     if(!isset($_SERVER['QUERY_STRING'])){
         $_SERVER['QUERY_STRING'] = 'page=1';
     }
-    
+
     global $pagination;
     $pagination->records(count($data));
     $pagination->records_per_page($records_per_page);

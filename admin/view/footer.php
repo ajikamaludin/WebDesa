@@ -4,4 +4,5 @@
 <script src="<?= assets('bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
 <!-- iCheck -->
 <script src="<?= assets('plugins/iCheck/icheck.min.js') ?>"></script>
+<script src="<?= assets('dist/js/adminlte.min.js')?>"></script>
 </html>

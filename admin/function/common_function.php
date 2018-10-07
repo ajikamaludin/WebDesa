@@ -47,6 +47,10 @@ function printPesan(){
     if(isset($_SESSION['pesan'])){
         $pesan = $_SESSION['pesan'];
         unset($_SESSION['pesan']);
+        if(isset($_SESSION['error'])){
+            unset($_SESSION['error']);
+            return "<div class='alert alert-danger'>". $pesan ."</div>";    
+        }
         return "<div class='alert alert-success'>". $pesan ."</div>";
     }
 }

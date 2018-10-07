@@ -1,9 +1,22 @@
 <?php
 include 'view/header.php';
+
 $error = null;
+$kategori = ['id' => null,'nama' => ''];
+
+
 if(isset($_POST['submit'])){
   $nama = $_POST['nama'];
-  $error = tambahKategori($nama);
+  $id = $_POST['id'];
+  if(isset($_POST['id'])){
+    $error = ubahKategori($id, $nama);
+  }else{
+    $error = tambahKategori($nama);
+  }
+}
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+  $kategori = getKategori($id);
 }
 ?>
 
@@ -31,7 +44,10 @@ if(isset($_POST['submit'])){
     <div class="col-md-12">
       <form action="kategori_form.php" method="post">
         <label class="control-label" for="tag-nama">Nama</label>
-        <input type="text" class="form-control" name="nama" aria-required="true" required>
+        <?php if(isset($id)){ ?>
+          <input type="hidden" class="form-control" name="id" aria-required="true" value="<?= $id ?>">
+        <?php } ?>
+        <input type="text" class="form-control" name="nama" aria-required="true" value="<?= $kategori['nama'] ?>" required>
 
         <div class="help-block"></div>
         

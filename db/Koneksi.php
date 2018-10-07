@@ -35,6 +35,13 @@ class Koneksi
         return $this->data;
     }
 
+    public function singleQuery($sql)
+    {
+        $table = mysqli_query($this->koneksi, $this->cekString($sql));
+        $this->data = mysqli_fetch_assoc($table);
+        return $this->data;
+    }
+
     public function cekString($string)
     {
         $data = mysqli_real_escape_string($this->koneksi, $string);

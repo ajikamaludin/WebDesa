@@ -8,5 +8,6 @@ if(isset($_GET['table']) && isset($_GET['key']) && isset($_GET['id'])){
     hapusData($table, $key, $id);
 }else{
     $_SESSION['pesan'] = 'Terjadi Kesalahan di Sistem Saat Menghapus Data';
+    $_SESSION['error'] = true;
     header('Location: index.php');
 }

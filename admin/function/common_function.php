@@ -62,9 +62,13 @@ function hapusData($table,$key,$id){
     $id = $koneksi->cekString($id);
     $sql = "DELETE FROM `$table` WHERE `$key` = '$id'";
     if($koneksi->run($sql)){
-        if($table = "kategori_post"){
-            $_SESSION['pesan'] = 'Berhasil Menghapus Data';
+        if($table == "kategori_post"){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Kategori';
             header('Location: kategori.php');
+        }
+        if($table == "post"){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Berita';
+            header('Location: berita.php');
         }
     }
 }
@@ -95,24 +99,32 @@ function slug($name){
 
 function uploadFiles($file, $name = null){
     if($file['error'] == 0){
-        $storage = dirname(dirname(__DIR__))."/assets/uploads/gambar/";
+        $storageImage = dirname(dirname(__DIR__))."/assets/uploads/gambar/";
+        $storageFile = dirname(dirname(__DIR__))."/assets/uploads/document/";
+
         $filePath = $file['tmp_name'];
         $fileExtension = $file['type'];
 
-        $fileName = '.'.substr($fileExtension, 6 ,5);
-
-        $fileNameFinal = ($name != null) ? $name.$fileExtension : time().$fileExtension;
-        $fileFinalPath = $storage.$fileNameFinal;
+        $fileDotExtension = '.'.substr($fileExtension, 6 ,5);
+        
+        $fileNameFinal = ($name != null) ? $name.$fileDotExtension : time().$fileDotExtension;
+        
 
         $allowedImage = ["image/jpeg","image/png","image/jpg"];
-        die(var_dump($allowedImage));
-
-        if(!in_array($fileExtension, $allowedImage)){
-            die('allowed');
-            move_uploaded_file($filePath, $fileNameFinal);
-            return $fileNameFinal;
+        $allowedDoc = [];
+        if(in_array($fileExtension, $allowedImage)){
+            $fileFinalPath = $storageImage.$fileNameFinal;
+            if(move_uploaded_file($filePath, $fileFinalPath)){
+                return $fileFinalPath;
+            }
         }
+        // if(in_array($fileExtension, $allowedDoc)){
+        //     $fileFinalPath = $storageImage.$storageFile;
+        //     if(move_uploaded_file($filePath, $fileFinalPath)){
+        //         return $fileFinalPath;
+        //     }
+        // }
     }
-    die('not allowed');
+
     return false;
 }

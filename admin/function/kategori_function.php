@@ -9,7 +9,7 @@ function redirectKategori($pesan, $error = false){
 }
 function tampilanKategori(){
     global $koneksi;
-    $sql = 'SELECT * FROM kategori_post';
+    $sql = 'SELECT * FROM kategori_post ORDER BY `id_kategori` DESC';
     return $koneksi->query($sql);
 }
 function tambahKategori($nama){

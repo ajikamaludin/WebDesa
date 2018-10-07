@@ -65,7 +65,7 @@ $pengguna = getPengguna();
             </span>
           </a>
           <ul class="treeview-menu ">
-            <li><a href="berita.php"><i class="fa fa-circle-o"></i> Umum </a></li>
+            <li><a href="pengaturan.php"><i class="fa fa-circle-o"></i> Umum </a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Banner </a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Menu </a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Link Terkaits </a></li>

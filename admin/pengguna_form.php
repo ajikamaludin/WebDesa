@@ -2,26 +2,27 @@
 include 'view/header.php';
 
 $error = null;
-$pengguna = ['username' => '','email'=>'','password'=>'','foto'=>''];
-
+$pengun = ['nama'=>'','username' => '','email'=>'','password'=>'','foto'=>''];
+$id = [];
 
 if(isset($_POST['submit'])){
   $nama = $_POST['nama'];
   $email = $_POST['email'];
   $username = $_POST['username'];
-  $password = $_POST['password'];
   $foto = $_FILES['gambar'];
-
+  
   if(isset($_POST['id'])){
     $id = $_POST['id'];
-    //$error = ubahKategori($id, $nama);
+    $foto_lama = $_POST['foto'];
+    $error = ubahPengguna($id, $nama, $email, $username, $foto, $foto_lama);
   }else{
+    $password = $_POST['password'];
     $error = tambahPengguna($nama, $email, $username, $password, $foto);
   }
 }
-if(isset($_GET['id'])){
+if(isset($_GET['id']) && !empty($_GET['id']) ){
   $id = $_GET['id'];
-  $pengguna = getPengguna($id);
+  $pengun = getPengguna($id);
 }
 ?>
 
@@ -49,16 +50,22 @@ if(isset($_GET['id'])){
     <div class="col-md-12">
       <form action="pengguna_form.php" method="post" enctype="multipart/form-data">
         <label class="control-label" for="tag-nama">Nama</label>
-        <input type="text" class="form-control" name="nama" aria-required="true" required>
+        <input type="text" class="form-control" name="nama" aria-required="true" required value="<?= $pengun['nama'] ?>">
         <label class="control-label" for="tag-nama">E-Mail</label>
-        <input type="email" class="form-control" name="email" aria-required="true" required>
+        <input type="email" class="form-control" name="email" aria-required="true" required value="<?= $pengun['email'] ?>">
         <label class="control-label" for="tag-nama">Username</label>
-        <input type="text" class="form-control" name="username" aria-required="true" required>
+        <input type="text" class="form-control" name="username" aria-required="true" required value="<?= $pengun['username'] ?>">
         <label class="control-label" for="tag-nama">Password</label>
-        <input type="password" class="form-control" name="password" aria-required="true" required>
+        <?php if($id == null){ ?>
+          <input type="password" class="form-control" name="password" aria-required="true" required>
+        <?php } ?>
         <label class="control-label" for="tag-nama">Gambar : </label>
         <input type="file" id="fotoprofile" name="gambar">
 
+        <?php if(!empty($id)){ ?>
+          <input type="hidden" value="<?= $pengun['foto'] ?>" name="foto">
+          <input type="hidden" value="<?= $pengun['id_user'] ?>" name="id">
+        <?php } ?>
         <div class="help-block"></div>
         
         <input type="submit" class="btn btn-primary btn-flat" name="submit" value="Simpan">

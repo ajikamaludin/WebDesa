@@ -37,10 +37,14 @@ function getPageName(){
     return $_SERVER['SCRIPT_NAME'];
 }
 
-function getPengguna(){
+function getPengguna($id = null){
     global $koneksi;
-    $username = $_SESSION['admin'];
-    $sql = "SELECT * FROM user WHERE username = '$username'";
+    if($id == null){
+        $username = $_SESSION['admin'];
+        $sql = "SELECT * FROM user WHERE username = '$username'";
+    }else{
+        $sql = "SELECT * FROM user WHERE id_user = '$id'";
+    }
     return $koneksi->singleQuery($sql);
 
 }

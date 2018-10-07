@@ -87,3 +87,32 @@ function pagination($data, $records_per_page = 10){
     );
     return $data;
 }
+
+function slug($name){
+    global $slugify;
+    return $slugify->slugify($name, '_');
+}
+
+function uploadFiles($file, $name = null){
+    if($file['error'] == 0){
+        $storage = dirname(dirname(__DIR__))."/assets/uploads/gambar/";
+        $filePath = $file['tmp_name'];
+        $fileExtension = $file['type'];
+
+        $fileName = '.'.substr($fileExtension, 6 ,5);
+
+        $fileNameFinal = ($name != null) ? $name.$fileExtension : time().$fileExtension;
+        $fileFinalPath = $storage.$fileNameFinal;
+
+        $allowedImage = ["image/jpeg","image/png","image/jpg"];
+        die(var_dump($allowedImage));
+
+        if(!in_array($fileExtension, $allowedImage)){
+            die('allowed');
+            move_uploaded_file($filePath, $fileNameFinal);
+            return $fileNameFinal;
+        }
+    }
+    die('not allowed');
+    return false;
+}

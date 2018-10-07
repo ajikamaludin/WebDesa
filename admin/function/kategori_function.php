@@ -6,6 +6,7 @@ function redirectKategori($pesan, $error = false){
     }
     $_SESSION['pesan'] = $pesan;
     header('Location: kategori.php');
+    return;
 }
 function tampilanKategori(){
     global $koneksi;

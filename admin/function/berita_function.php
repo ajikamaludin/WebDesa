@@ -2,10 +2,11 @@
 
 function redirectBerita($pesan, $error = false){
     if($error){
-        $_SESSION['error'] = true; 
+        $_SESSION['error'] = "true"; 
     }
     $_SESSION['pesan'] = $pesan;
     header('Location: berita.php');
+    return;
 }
 function tampilanBerita(){
     global $koneksi;
@@ -22,11 +23,11 @@ function tambahBerita($judul, $status, $gambar, $isi, $kategori){
     $slug = slug($judul);
     $slug = $koneksi->cekString($slug);
     $gambar = uploadFiles($gambar);
-    if($gambar){
+    if($gambar == false){
         $pesan = "Gagal Mengambil Gambar , Terjadi Kesalahan";
         redirectBerita($pesan, true);
     }
-    if(!empty($judul) && !empty($isi) &&!empty($kategori) &&!empty($slug)){
+    if(!empty($judul) && !empty($isi) &&!empty($kategori) &&!empty($slug) &&!empty($gambar)){
         $sql = "INSERT INTO `post` (`judul`, `isi`, `gambar`, `status`, `id_kategori`, `slug`) 
                 VALUES 
                 ('$judul', '$isi', '$gambar', '$status',  '$kategori', '$slug')";

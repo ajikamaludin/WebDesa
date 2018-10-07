@@ -83,10 +83,13 @@ if(isset($_GET['id'])){
 
         <label class="control-label" for="tag-nama">Kategori </label>
         <select class="form-control" name="kategori" required>
-        <option value="0" <?= ($berita['id_kategori'] == '0') ? 'selected' : '' ?>> Tidak Diketahui </option>
-          <?php foreach(tampilanKategori() as $kategori){?>
+        
+          <?php if(count(tampilanKategori())  == 0){ ?>
+            <option value="0" <?= ($berita['id_kategori'] == '0') ? 'selected' : '' ?>> Tidak Diketahui </option>
+          <?php } else {
+           foreach(tampilanKategori() as $kategori){?>
             <option value="<?= $kategori['id_kategori'] ?>" <?= ($berita['id_kategori'] == $kategori['id_kategori']) ? 'selected' : '' ?>><?= $kategori['nama'] ?></option>
-          <?php } ?>
+          <?php } } ?>
         </select>
 
         <div class="help-block"></div>

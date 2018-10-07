@@ -47,8 +47,8 @@ function printPesan(){
     if(isset($_SESSION['pesan'])){
         $pesan = $_SESSION['pesan'];
         unset($_SESSION['pesan']);
-        if(isset($_SESSION['error'])){
-            unset($_SESSION['error']);
+        if(isset($_SESSION['error']) && $_SESSION['error'] == true){
+            $_SESSION['error'] = false;
             return "<div class='alert alert-danger'>". $pesan ."</div>";    
         }
         return "<div class='alert alert-success'>". $pesan ."</div>";
@@ -115,7 +115,7 @@ function uploadFiles($file, $name = null){
         if(in_array($fileExtension, $allowedImage)){
             $fileFinalPath = $storageImage.$fileNameFinal;
             if(move_uploaded_file($filePath, $fileFinalPath)){
-                return $fileFinalPath;
+                return '/assets/uploads/gambar/'.$fileNameFinal;
             }
         }
         // if(in_array($fileExtension, $allowedDoc)){

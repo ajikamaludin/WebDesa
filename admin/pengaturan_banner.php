@@ -2,9 +2,8 @@
 include 'view/header.php';
 $error = null;
 if(isset($_POST['submit'])){
-    $nama = $_POST['nama'];
-    $file = $_FILES['berkas'];
-    $error = tambahBerkas($nama, $file);
+    $file = $_FILES['banner'];
+    $error = tambahBanner($file);
 }
 
 ?>
@@ -20,25 +19,22 @@ if(isset($_POST['submit'])){
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Berkas
-        <small>pengelolaan berkas publik</small>
+        Banner
+        <small>pengelolaan banner halaman depan</small>
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
-        
-      <form action="berkas.php" method="post" enctype="multipart/form-data">
-        <label class="control-label" for="tag-nama">Berkas Baru : </label>
-        <input class="form-control" type="text" name="nama" required>
-        <div class="help-block"></div><div class="help-block"></div>
-        <input type="file" id="fotoprofile" name="berkas" required>
-        <sub>hanya untuk document ( doc/docx dan pdf )</sub>
+      <form action="pengaturan_banner.php" method="post" enctype="multipart/form-data">
+        <label class="control-label" for="tag-nama">Banner Baru : </label>
+        <input type="file" id="banner" name="banner" required>
+        <sub>pastikan rasio banner sesuai dengan ukuran layar, hanya berupa file png dan jpg, banner dibatasi maksimal 7 banner</sub>
         <div class="help-block"></div>
         <input type="submit" class="btn btn-primary btn-flat" name="submit" value="Tambah">
       </form>
 
-      <h3>Daftar Berkas</h3>
+      <h3>Daftar Banner</h3>
       <?= printPesan(); ?>
       <?php if(!empty($error)){ ?>
         <div class='col-md-12'><p class='alert alert-info'><?=$error?></p></div>
@@ -46,24 +42,26 @@ if(isset($_POST['submit'])){
         <table class="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Nama</th>
+              <th>Banner</th>
               <th class="action-column">Action</th>
             </tr>
         </thead>
         <tbody>
         <?php 
-        $berkas = pagination(tampilanBerkas());
-        if($berkas == null){ ?>
+        $banners = pagination(tampilanBanner());
+        if($banners == null){ ?>
           <tr>
-            <td>Belum Ada Berkas yang dimasukan</td>
+            <td>Belum Ada Banner yang dimasukan</td>
             <td></td>
           </tr>
         <?php }else{ 
-        foreach($berkas as $berka ):?>
+        foreach($banners as $banner ):?>
           <tr>
-            <td><a href="<?= $berka['file'] ?>"><?= $berka['nama'] ?></a></td>
+            <td>
+              <img src="<?= $banner['gambar'] ?>" alt="Banner" width="600px" height="200px">
+            </td>
             <td> 
-              <a href="hapus.php?table=upload_file&key=id_file&id=<?= $berka['id_file'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
+              <a href="hapus.php?table=banner&key=id_banner&id=<?= $banner['id_banner'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
                 <span class="fa fa-trash-o fa-2x"></span>
               </a>
             </td>
@@ -71,7 +69,7 @@ if(isset($_POST['submit'])){
         <?php endforeach;  }?>
         </tbody>
       </table>
-      <?= ($berkas == null) ? '' : $pagination->render(); ?>
+      <?= ($banners == null) ? '' : $pagination->render(); ?>
       </div>
     </section>
   </div>

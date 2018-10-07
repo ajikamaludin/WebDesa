@@ -43,5 +43,26 @@ function setPengaturan($nama, $logo, $kontak, $alamat, $email, $fb, $tw, $ig, $d
 }
 
 function tampilanBanner(){
-    return null;
+    global $koneksi;
+    $sql = "SELECT * FROM banner";
+    return $koneksi->query($sql);
+}
+
+function tambahBanner($file){
+    global $koneksi;
+    $banner = count(tampilanBanner());
+    if($banner >= 7){
+        return 'Banner Sudah mencapai batas silahkan hapus kemudian tambahkan lagi';
+    }
+    
+    $file = uploadFiles($file);
+    
+    if($file != false){
+       
+       $sql = "INSERT INTO `banner` (`gambar`) VALUES ('$file');";
+       if($koneksi->run($sql)){
+            return 'Berhasil Menambah Banner';
+       }
+    }
+    return 'Terjadi Kesalahan Saat Menambah Banner';
 }

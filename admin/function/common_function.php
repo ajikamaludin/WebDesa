@@ -104,6 +104,10 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Berkas';
             header('Location: berkas.php');
         }
+        if($table == 'banner'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Banner';
+            header('Location: pengaturan_banner.php');
+        }
     }
 }
 

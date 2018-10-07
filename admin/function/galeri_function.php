@@ -9,6 +9,15 @@ function redirectGaleri($pesan, $error = false){
     return;
 }
 
+function redirectGaleriDetail($id, $pesan, $error = false){
+    if($error){
+        $_SESSION['error'] = true; 
+    }
+    $_SESSION['pesan'] = $pesan;
+    header('Location: galeri_detail.php?id='.$id);
+    return;
+}
+
 function tampilanGaleri(){
     global $koneksi;
     $sql = "SELECT * FROM galeri ORDER BY `id_galeri` DESC";
@@ -54,4 +63,29 @@ function ubahGaleri($id, $nama){
     }else{
         return "Nama Tidak Boleh Kosong";
     }
+}
+
+function tampilanGambarGaleri($id){
+    global $koneksi;
+    $sql = "SELECT * FROM gambar_galeri WHERE `id_galeri` = '$id'";
+    return $koneksi->query($sql);
+}
+
+function tambahGambarGaleri($id, $file){
+    global $koneksi;
+    $gambar = uploadFiles($file);
+    if($gambar == false){
+        $pesan = "Gagal Mengambil Gambar , Terjadi Kesalahan";
+        redirectGaleriDetail($id, $pesan, true);
+    }else{
+        $sql = "INSERT INTO `gambar_galeri` (`id_galeri`, `gambar`) VALUES ('$id', '$gambar');";
+        if($koneksi->run($sql)){
+            $pesan = "Berhasi Mengugah Gambar";
+            redirectGaleriDetail($id, $pesan);
+        }else{
+            $pesan = "Gagal Mengambil Gambar , Terjadi Kesalahan";
+            redirectGaleriDetail($id, $pesan, true);
+        }
+    }
+   
 }

@@ -77,6 +77,10 @@ function hapusData($table,$key,$id){
                 header('Location: galeri.php');
             }
         }
+        if($table == 'gambar_galeri'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Gambar Galeri';
+                header('Location: galeri.php');
+        }
     }
 }
 

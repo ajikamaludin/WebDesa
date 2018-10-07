@@ -55,6 +55,8 @@ cekSession();
         <li class="<?= strpos(getPageName(), 'galeri') ? 'active' : '' ?>"><a href="galeri.php"><i class="fa fa-picture-o"></i> <span>Galeri</span></a></li>
         <li class="<?= strpos(getPageName(), 'halaman') ? 'active' : '' ?>"><a href="index.php"><i class="fa fa-file-o"></i> <span>Halaman</span></a></li>
         <li class="<?= strpos(getPageName(), 'pesan') ? 'active' : '' ?>"><a href="index.php"><i class="fa fa-comment-o"></i> <span>Pesan</span></a></li>
+        <li class="<?= strpos(getPageName(), 'pengumuman') ? 'active' : '' ?>"><a href="index.php"><i class="fa fa-bullhorn"></i> <span>Pengumuman</span></a></li>
+        <li class="<?= strpos(getPageName(), 'berkas') ? 'active' : '' ?>"><a href="index.php"><i class="fa fa-download"></i> <span>Berkas</span></a></li>
         <li class="treeview <?= strpos(getPageName(), 'pengaturan') ? 'active' : '' ?>">
           <a href="#">
             <i class="fa fa-cog"></i> <span>Pengaturan</span>

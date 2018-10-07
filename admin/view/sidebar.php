@@ -1,6 +1,6 @@
 <?php 
 cekSession();
-
+$pengguna = getPengguna();
 ?>
 <header class="main-header">
     <!-- Logo -->
@@ -29,10 +29,10 @@ cekSession();
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?= assets('dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
+          <img src="<?= ($pengguna['foto'] == null) ? assets('dist/img/user2-160x160.jpg') : $pengguna['foto'] ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?= $pengguna['nama'] ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -71,7 +71,7 @@ cekSession();
             <li><a href="#"><i class="fa fa-circle-o"></i> Link Terkaits </a></li>
           </ul>
         </li>
-        <li class="<?= strpos(getPageName(), 'pengguna') ? 'active' : '' ?>"><a href="index.php"><i class="fa fa-user-o"></i> <span>Pengguna</span></a></li>
+        <li class="<?= strpos(getPageName(), 'pengguna') ? 'active' : '' ?>"><a href="pengguna.php"><i class="fa fa-user-o"></i> <span>Pengguna</span></a></li>
 
         <li><a href="logout.php"><i class="fa fa-sign-out"></i> <span>Keluar</span></a></li>
       </ul>

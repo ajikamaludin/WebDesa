@@ -15,22 +15,14 @@ include 'view/header.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>list berita</small>
+      <small>Dashboard</small>
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <?= printPesan(); ?>
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-body">
-        
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
+      <h2>Selamat Datang di Website Desa : </h2>
 
     </section>
     <!-- /.content -->

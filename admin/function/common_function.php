@@ -37,6 +37,14 @@ function getPageName(){
     return $_SERVER['SCRIPT_NAME'];
 }
 
+function getPengguna(){
+    global $koneksi;
+    $username = $_SESSION['admin'];
+    $sql = "SELECT * FROM user WHERE username = '$username'";
+    return $koneksi->singleQuery($sql);
+
+}
+
 function printError($error){
     if(!empty($error)){
         return "<div class='col-md-12'><p class='alert alert-danger'>".$error."</p></div>";
@@ -80,6 +88,10 @@ function hapusData($table,$key,$id){
         if($table == 'gambar_galeri'){
             $_SESSION['pesan'] = 'Berhasil Menghapus Gambar Galeri';
                 header('Location: galeri.php');
+        }
+        if($table == 'user'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Pengguna';
+                header('Location: pengguna.php');
         }
     }
 }

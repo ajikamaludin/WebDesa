@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
         $password = $_POST['password'];
         if (!empty(trim($username)) && !empty(trim($password))) {
             if (login($username, $password)){
-                    $_SESSION['admin'] = $username.$password;
+                    $_SESSION['admin'] = $username;
             }else{
                 $error = 'Username dan Password Tidak Terdaftar';
             }

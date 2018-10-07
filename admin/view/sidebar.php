@@ -48,8 +48,8 @@ $pengguna = getPengguna();
             </span>
           </a>
           <ul class="treeview-menu ">
-            <li><a href="berita.php"><i class="fa fa-circle-o"></i> Berita </a></li>
-            <li><a href="kategori.php"><i class="fa fa-circle-o"></i> Kategori </a></li>
+            <li class=" <?= strpos(getPageName(), 'berita') ? 'active' : '' ?>"><a href="berita.php"><i class="fa fa-circle-o"></i> Berita </a></li>
+            <li class=" <?= strpos(getPageName(), 'kategori') ? 'active' : '' ?>"><a href="kategori.php"><i class="fa fa-circle-o"></i> Kategori </a></li>
           </ul>
         </li>
         <li class="<?= strpos(getPageName(), 'galeri') ? 'active' : '' ?>"><a href="galeri.php"><i class="fa fa-picture-o"></i> <span>Galeri</span></a></li>
@@ -65,10 +65,10 @@ $pengguna = getPengguna();
             </span>
           </a>
           <ul class="treeview-menu ">
-            <li><a href="pengaturan.php"><i class="fa fa-circle-o"></i> Umum </a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Banner </a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Menu </a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Link Terkaits </a></li>
+            <li class=" <?= strpos(getPageName(), 'umum') ? 'active' : '' ?>"><a href="pengaturan_umum.php"><i class="fa fa-circle-o"></i> Umum </a></li>
+            <li class=" <?= strpos(getPageName(), 'banner') ? 'active' : '' ?>"><a href="pengaturan_banner.php"><i class="fa fa-circle-o"></i> Banner </a></li>
+            <li class=" <?= strpos(getPageName(), 'menu') ? 'active' : '' ?>"><a href="#"><i class="fa fa-circle-o"></i> Menu </a></li>
+            <li class=" <?= strpos(getPageName(), 'link') ? 'active' : '' ?>"><a href="#"><i class="fa fa-circle-o"></i> Link Terkaits </a></li>
           </ul>
         </li>
         <li class="<?= strpos(getPageName(), 'pengguna') ? 'active' : '' ?>"><a href="pengguna.php"><i class="fa fa-user-o"></i> <span>Pengguna</span></a></li>

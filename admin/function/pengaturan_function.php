@@ -41,3 +41,7 @@ function setPengaturan($nama, $logo, $kontak, $alamat, $email, $fb, $tw, $ig, $d
         return 'Terjadi kesalahan';
     }
 }
+
+function tampilanBanner(){
+    return null;
+}

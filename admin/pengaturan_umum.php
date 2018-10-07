@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
     <div class="row">
     <?= printPesan(); ?>
     <div class="col-md-12">
-      <form action="pengaturan.php" method="post" enctype="multipart/form-data">
+      <form action="pengaturan_umum.php" method="post" enctype="multipart/form-data">
         <label class="control-label" for="tag-nama">Nama Website</label>
         <input type="text" class="form-control" name="nama" aria-required="true" required value="<?= $pengaturan['nama'] ?>">
         <label class="control-label" for="tag-nama">Logo Website</label>

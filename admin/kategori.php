@@ -37,6 +37,7 @@ include 'view/header.php';
         if($kategoris == null){ ?>
           <tr>
             <td>Belum Ada Kategori yang dimasukan</td>
+            <td></td>
           </tr>
         <?php }else{ 
         foreach($kategoris as $kategori ):?>

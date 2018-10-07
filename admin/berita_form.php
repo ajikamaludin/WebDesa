@@ -21,18 +21,20 @@ if(isset($_POST['submit'])){
 
   if(isset($_POST['id'])){
     $id = $_POST['id'];
-    $error = ubahBerita($id, $nama);
+    $gambar_lama = $_POST['gambar_lama'];
+    $error = ubahBerita($judul, $status, $gambar_lama, $gambar_baru, $isi, $kategori);
   }else{
     $error = tambahBerita($judul, $status, $gambar_baru, $isi, $kategori);
   }
 }
+
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $kategori = getBerita($id);
+  $berita = getBerita($id);
 }
 ?>
 
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -54,6 +56,7 @@ if(isset($_GET['id'])){
     <!-- Main content -->
     <section class="content">
     <?= printError($error) ?>
+    <div class="row">
     <div class="col-md-12">
       <form action="berita_form.php" method="post" enctype="multipart/form-data">
         
@@ -74,28 +77,32 @@ if(isset($_GET['id'])){
         <input type="file" id="gambarheader" name="gambar_baru">
         
         <?php if($berita['gambar'] != null){?>
-            <img src="<?= $berita['gambar'] ?>" alt="Gambar Lama" >
+            <div class="help-block"></div>
+            <img src="<?= $berita['gambar'] ?>" alt="Gambar Lama" width="400px" height="300px" >
             <input type="hidden" name="gambar_lama" value="<?= $berita['gambar'] ?>">
+            <div class="help-block"></div>
         <?php } ?>
-
+        
         <label class="control-label" for="tag-nama">Berita</label>
-        <textarea class="form-control" name="berita" aria-required="true" required><?= $berita['isi'] ?> </textarea>
+        <textarea class="form-control" name="berita" aria-required="true" required> <?= $berita['isi'] ?> </textarea>
 
         <label class="control-label" for="tag-nama">Kategori </label>
         <select class="form-control" name="kategori" required>
-        
           <?php if(count(tampilanKategori())  == 0){ ?>
-            <option value="0" <?= ($berita['id_kategori'] == '0') ? 'selected' : '' ?>> Tidak Diketahui </option>
+            <option value="0" disabled> Tidak Diketahui, Setidaknya Buat Satu Kategori </option>
           <?php } else {
-           foreach(tampilanKategori() as $kategori){?>
+           foreach(tampilanKategori() as $kategori){ 
+          ?>
             <option value="<?= $kategori['id_kategori'] ?>" <?= ($berita['id_kategori'] == $kategori['id_kategori']) ? 'selected' : '' ?>><?= $kategori['nama'] ?></option>
-          <?php } } ?>
+          <?php } 
+              } ?>
         </select>
 
         <div class="help-block"></div>
         
         <input type="submit" class="btn btn-primary btn-flat" name="submit" value="Simpan">
       </form>
+    </div>
     </div>
     </section>
     <!-- /.content -->

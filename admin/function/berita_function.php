@@ -43,11 +43,11 @@ function tambahBerita($judul, $status, $gambar, $isi, $kategori){
 function getBerita($id){
     global $koneksi;
     $id = $koneksi->cekString($id);
-    //$sql = "SELECT * FROM kategori_post WHERE id_kategori = '$id'";    
+    $sql = "SELECT * FROM post WHERE id_post = '$id'";    
     $data = $koneksi->singleQuery($sql);
     if($data == null){
-        //$pesan = 'Terjadi Kesalahan saat mengubah kategori';
-        redirectKategori($pesan, true);
+        $pesan = 'Terjadi Kesalahan saat mengubah kategori';
+        redirectBerita($pesan, true);
     }
     return $data;
 }

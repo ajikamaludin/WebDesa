@@ -38,6 +38,8 @@ include 'view/header.php';
         if($beritas == null){ ?>
           <tr>
             <td>Belum Ada Berita yang dimasukan</td>
+            <td></td>
+            <td></td>
           </tr>
         <?php }else{ 
         foreach($beritas as $berita ):?>

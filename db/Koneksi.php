@@ -30,9 +30,9 @@ class Koneksi
     {
         $table = mysqli_query($this->koneksi, $this->cekString($sql));
         while($data = mysqli_fetch_assoc($table)){
-            $this->data[] = $data;
+            $datas[] = $data;
         }
-        return $this->data;
+        return $datas;
     }
 
     public function singleQuery($sql)

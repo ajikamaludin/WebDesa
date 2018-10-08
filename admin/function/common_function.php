@@ -1,6 +1,6 @@
 <?php
 
-function assets($file){
+function assetsAdmin($file){
     return 'http://'.$_SERVER['HTTP_HOST'].'/assets/admin_assets/'.$file;
 }
 
@@ -54,7 +54,6 @@ function getPengguna($id = null){
         $sql = "SELECT * FROM user WHERE id_user = '$id'";
     }
     return $koneksi->singleQuery($sql);
-
 }
 
 function printError($error, $mirror = true){

@@ -7,16 +7,16 @@
                     <div class="col-12 col-sm-6 col-lg-6">
                         <div class="single-footer-widget mb-100">
                             <div class="contact-form-area">
-                                <form action="#">
+                                <form action="pesan.php" method="post">
                                     <div class="row">
                                         <div class="col-12 col-md-6">
-                                            <input type="text" class="form-control" id="name" placeholder="Nama">
+                                            <input type="text" class="form-control" id="name" name="nama" placeholder="Nama">
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <input type="email" class="form-control" id="email" placeholder="E-mail">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
                                         </div>
                                         <div class="col-12">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subjek">
+                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subjek">
                                         </div>
                                         <div class="col-12">
                                             <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Pesan"></textarea>

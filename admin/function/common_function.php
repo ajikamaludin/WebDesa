@@ -131,6 +131,10 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Menu';
             header('Location: menu.php');
         }
+        if($table == 'jabatan'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Jabatan';
+            header('Location: jabatan.php');
+        }
     }
 }
 

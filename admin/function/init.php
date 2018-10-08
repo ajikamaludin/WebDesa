@@ -14,3 +14,5 @@ include 'pengumuman_function.php';
 include 'link_function.php';
 include 'halaman_function.php';
 include 'menu_function.php';
+include 'jabatan_function.php';
+include 'perangkat_function.php';

@@ -71,6 +71,18 @@ $pengguna = getPengguna();
             <li class=" <?= strpos(getPageName(), 'link') ? 'active' : '' ?>"><a href="link.php"><i class="fa fa-circle-o"></i> Link Terkait </a></li>
           </ul>
         </li>
+        <li class="treeview <?= (strpos(getPageName(), 'perangkat') || strpos(getPageName(), 'jabatan')) ? 'active' : '' ?>">
+          <a href="#">
+            <i class="fa fa-cog"></i> <span>Perangkat</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu ">
+            <li class=" <?= strpos(getPageName(), 'jabatan') ? 'active' : '' ?>"><a href="jabatan.php"><i class="fa fa-circle-o"></i> Jabatan </a></li>
+            <li class=" <?= strpos(getPageName(), 'perangkat') ? 'active' : '' ?>"><a href="perangkat.php"><i class="fa fa-circle-o"></i> Perangkat Desa </a></li>
+          </ul>
+        </li>
         <li class="<?= strpos(getPageName(), 'pengguna') ? 'active' : '' ?>"><a href="pengguna.php"><i class="fa fa-user-o"></i> <span>Pengguna</span></a></li>
 
         <li><a href="logout.php"><i class="fa fa-sign-out"></i> <span>Keluar</span></a></li>

@@ -4,6 +4,14 @@ function assets($file){
     return 'http://'.$_SERVER['HTTP_HOST'].'/assets/admin_assets/'.$file;
 }
 
+function url($string){
+    return 'http://'.$_SERVER['HTTP_HOST'].'/'.$string;
+}
+
+function urlPage($string){
+    return 'http://'.$_SERVER['HTTP_HOST'].'/page/'.$string;
+}
+
 function cekSession(){
     if(!isset($_SESSION['admin'])){
         header('Location: login.php');

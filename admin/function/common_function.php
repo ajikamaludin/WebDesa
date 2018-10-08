@@ -112,6 +112,10 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Pengumuman';
             header('Location: pengumuman.php');
         }
+        if($table == 'link_terkait'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Link';
+            header('Location: link.php');
+        }
     }
 }
 

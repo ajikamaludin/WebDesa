@@ -57,7 +57,7 @@ $pengguna = getPengguna();
         <li class="<?= strpos(getPageName(), 'pesan') ? 'active' : '' ?>"><a href="pesan.php"><i class="fa fa-comment-o"></i> <span>Pesan</span></a></li>
         <li class="<?= strpos(getPageName(), 'pengumuman') ? 'active' : '' ?>"><a href="pengumuman.php"><i class="fa fa-bullhorn"></i> <span>Pengumuman</span></a></li>
         <li class="<?= strpos(getPageName(), 'berkas') ? 'active' : '' ?>"><a href="berkas.php"><i class="fa fa-download"></i> <span>Berkas</span></a></li>
-        <li class="treeview <?= strpos(getPageName(), 'pengaturan') ? 'active' : '' ?>">
+        <li class="treeview <?= (strpos(getPageName(), 'pengaturan') || strpos(getPageName(), 'link')) ? 'active' : '' ?>">
           <a href="#">
             <i class="fa fa-cog"></i> <span>Pengaturan</span>
             <span class="pull-right-container">
@@ -68,7 +68,7 @@ $pengguna = getPengguna();
             <li class=" <?= strpos(getPageName(), 'umum') ? 'active' : '' ?>"><a href="pengaturan_umum.php"><i class="fa fa-circle-o"></i> Umum </a></li>
             <li class=" <?= strpos(getPageName(), 'banner') ? 'active' : '' ?>"><a href="pengaturan_banner.php"><i class="fa fa-circle-o"></i> Banner </a></li>
             <li class=" <?= strpos(getPageName(), 'menu') ? 'active' : '' ?>"><a href="#"><i class="fa fa-circle-o"></i> Menu </a></li>
-            <li class=" <?= strpos(getPageName(), 'link') ? 'active' : '' ?>"><a href="#"><i class="fa fa-circle-o"></i> Link Terkaits </a></li>
+            <li class=" <?= strpos(getPageName(), 'link') ? 'active' : '' ?>"><a href="link.php"><i class="fa fa-circle-o"></i> Link Terkait </a></li>
           </ul>
         </li>
         <li class="<?= strpos(getPageName(), 'pengguna') ? 'active' : '' ?>"><a href="pengguna.php"><i class="fa fa-user-o"></i> <span>Pengguna</span></a></li>

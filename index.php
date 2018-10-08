@@ -3,10 +3,9 @@
 
 include 'function/init.php';
 
-$users = $koneksi->query('SELECT `username`,`password` FROM user');
+$menus = $koneksi->query('SELECT * FROM menu');
 
-foreach($users as $user){
-    echo $user['username'].'<br>';
-}
 
-echo $PATH;
+echo "<pre>";
+print_r($menus);
+echo "</pre>";

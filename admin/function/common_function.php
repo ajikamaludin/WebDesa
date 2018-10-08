@@ -128,6 +128,10 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Halaman';
             header('Location: halaman.php');
         }
+        if($table == 'menu'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Menu';
+            header('Location: menu.php');
+        }
     }
 }
 
@@ -188,4 +192,11 @@ function uploadFiles($file, $name = null){
 
 function formatWaktu($datetime){
     return date("F jS, Y", strtotime($datetime));
+}
+
+function formatUrl($url){
+    if(substr($url, 0, 4) != 'http'){
+        $url = 'http://'.$url;
+    }
+    return $url;
 }

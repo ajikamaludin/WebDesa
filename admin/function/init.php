@@ -13,3 +13,4 @@ include 'pesan_function.php';
 include 'pengumuman_function.php';
 include 'link_function.php';
 include 'halaman_function.php';
+include 'menu_function.php';

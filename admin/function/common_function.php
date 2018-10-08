@@ -135,6 +135,10 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Jabatan';
             header('Location: jabatan.php');
         }
+        if($table == 'perangkat_desa'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Perangkat';
+            header('Location: perangkat.php');
+        }
     }
 }
 

@@ -124,6 +124,10 @@ function hapusData($table,$key,$id){
             $_SESSION['pesan'] = 'Berhasil Menghapus Link';
             header('Location: link.php');
         }
+        if($table == 'page'){
+            $_SESSION['pesan'] = 'Berhasil Menghapus Halaman';
+            header('Location: halaman.php');
+        }
     }
 }
 

@@ -3,7 +3,7 @@ include 'view/header.php';
 
 $error = null;
 $page = [
-  'id' => null,
+  'id_page' => null,
   'nama' => '',
   'judul' => '',
   'isi' => '',
@@ -55,13 +55,13 @@ if(isset($_GET['id'])){
     <div class="col-md-12">
       <form action="halaman_form.php" method="post" enctype="multipart/form-data">
         
-        <?php if($page['id'] != null){ ?>
+        <?php if($page['id_page'] != null){ ?>
           <input type="hidden" class="form-control" name="id" aria-required="true" value="<?= $id ?>">
         <?php } ?>
         <label class="control-label" for="tag-nama">Nama</label>
         <sub>ditampilkan pada menu</sub>
         <input type="text" class="form-control" name="nama" aria-required="true" value="<?= $page['nama'] ?>" required>
-        
+
         <label class="control-label" for="tag-nama">Judul</label>
         <input type="text" class="form-control" name="judul" aria-required="true" value="<?= $page['judul'] ?>" required>
 

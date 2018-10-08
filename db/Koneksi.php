@@ -2,10 +2,10 @@
 
 class Koneksi
 {
-    public $username = 'root';
-    public $password = 'eta';
-    public $host = 'localhost'; //127.0.0.1
-    public $database = 'web_desa';
+    private $username = 'root';
+    private $password = 'eta';
+    private $host = 'localhost'; //127.0.0.1
+    private $database = 'web_desa';
 
     public $data;
     public $table;
@@ -45,6 +45,7 @@ class Koneksi
 
     public function cekString($string)
     {
+        $string = trim($string);
         $data = mysqli_real_escape_string($this->koneksi, $string);
         if($data){
             return $string;

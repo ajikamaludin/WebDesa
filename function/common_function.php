@@ -16,3 +16,25 @@ function getPengaturan(){
     }
     return $data;
 }
+
+function getMenus(){
+    global $koneksi;
+    $menus = $koneksi->query('SELECT * FROM menu');
+    $datas = null;
+    foreach($menus as $menu){
+        $id = $menu['id_menu'];
+        $parent = $menu['parent'];
+        if($parent != 0){
+            $datas[$parent]['child'][] = $menu;
+        }else{
+            $datas[$id] = $menu;
+        }
+    }
+    return $datas;
+}
+
+function getBanners(){
+    global $koneksi;
+    $sql = "SELECT * FROM banner";
+    return $koneksi->query($sql);
+}

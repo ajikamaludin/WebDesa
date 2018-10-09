@@ -62,7 +62,7 @@ if(isset($_GET['id'])){
         <input type="text" class="form-control" name="nama" aria-required="true" value="<?= $menu['nama'] ?>" required>
         <label class="control-label" for="tag-nama">Link</label>
         <input type="text" class="form-control" name="url" aria-required="true" value="<?= $menu['url'] ?>" required>
-
+        <p>contoh link : http://example.com/</p>
         <div class="help-block"></div>
         
         <input type="submit" class="btn btn-primary btn-flat" name="submit" value="Simpan">

@@ -10,7 +10,10 @@ include 'view/header.php';
         <div class="container">
             <div class="row">
                 <!-- Single Feature Area -->
-                <?php foreach(getDokumens() as $dokumen) {?>
+                <?php 
+                $dokumens = paginationFront(getDokumens());
+                if($dokumens != null){
+                foreach($dokumens as $dokumen) {?>
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single-feature-area d-flex mb-100">
                         <div class="feature-icon mr-30">
@@ -21,16 +24,12 @@ include 'view/header.php';
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php } }?>
             </div>
-
-            <div class="mosh-pagination-area" style="margin-top: 100px;">
-            <nav>
-                <ul class="pagination" style="justify-content: center;">
-                    <li class="page-item active"><a class="page-link" href="#">1.</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2.</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3.</a></li>
-                </ul>
+            
+            <div class="mosh-pagination-area" style="margin-top: 10px;">
+            <nav style="margin: auto;width: 25%;">
+                <?= ($dokumens == null) ? '' : $pagination->render(); ?>
             </nav>
         </div>
         </div>

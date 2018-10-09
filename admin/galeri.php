@@ -44,8 +44,8 @@ include 'view/header.php';
           <tr>
             <td><?= $galeri['nama'] ?></td>
             <td> 
-              <a href="galeri_detail.php?id=<?= $galeri['id_galeri'] ?>" title="Tambah Foto" aria-label="Tambah Foto"><span class="fa fa-eye fa-1x"></span>Ubah</a>
-              <a href="galeri_form.php?id=<?= $galeri['id_galeri'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="galeri_detail.php?id=<?= $galeri['id_galeri'] ?>" title="Tambah Foto" aria-label="Tambah Foto"><span class="fa fa-eye fa-1x"></span>Tambah Gambar</a>
+              <a href="galeri_form.php?id=<?= $galeri['id_galeri'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=galeri&key=id_galeri&id=<?= $galeri['id_galeri'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
                 <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>

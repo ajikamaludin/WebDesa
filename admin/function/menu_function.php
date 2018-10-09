@@ -34,7 +34,7 @@ function tambahMenu($parent,  $nama, $url){
     global $koneksi;
     $parent = $koneksi->cekString($parent);
     $nama = $koneksi->cekString($nama);
-    $url = formatUrl($url);
+    // $url = formatUrl($url);
     $url = $koneksi->cekString($url);
     if(!empty($nama)){
         $sql = "INSERT INTO `menu` (`parent`, `nama`, `url`) VALUES ('$parent', '$nama', '$url')";

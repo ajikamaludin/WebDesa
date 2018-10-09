@@ -90,8 +90,27 @@ function tambahPesan($nama, $email, $subject, $message){
     return false;
 }
 
-function getDokumens($limit = 6){
+function getDokumens(){
     global $koneksi;
-    $sql = "SELECT * FROM upload_file ORDER BY `id_file` DESC LIMIT 0, $limit";
+    $sql = "SELECT * FROM upload_file ORDER BY `id_file` DESC";
     return $koneksi->query($sql);
+}
+
+function paginationFront($data, $records_per_page = 9){
+    if($data == null){
+        return null;
+    }
+    if(!isset($_SERVER['QUERY_STRING'])){
+        $_SERVER['QUERY_STRING'] = 'page=1';
+    }
+
+    global $pagination;
+    $pagination->records(count($data));
+    $pagination->records_per_page($records_per_page);
+    $data = array_slice(
+        $data,
+        (($pagination->get_page() - 1) * $records_per_page),
+        $records_per_page
+    );
+    return $data;
 }

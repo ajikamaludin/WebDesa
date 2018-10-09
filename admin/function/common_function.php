@@ -9,7 +9,7 @@ function url($string){
 }
 
 function urlPage($string){
-    return 'http://'.$_SERVER['HTTP_HOST'].'/page/'.$string;
+    return 'http://'.$_SERVER['HTTP_HOST'].'/page/?q='.$string;
 }
 
 function cekSession(){

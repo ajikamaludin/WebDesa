@@ -65,7 +65,7 @@ function getGaleriHeader($limit = 8){
     GROUP BY galeri.nama 
     ORDER BY galeri.id_galeri DESC";
     if($limit != null){
-        $sql .= "LIMIT 0,$limit";
+        $sql .= " LIMIT 0,$limit";
     }
     return $koneksi->query($sql);
 }

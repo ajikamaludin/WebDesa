@@ -63,7 +63,7 @@
 
                                 <!-- Search Form Area Start -->
                                 <div class="search-form-area animated">
-                                    <form action="#" method="post">
+                                    <form action="berita.php" method="get">
                                         <input type="search" name="search" id="search" placeholder="Type keywords &amp; hit enter">
                                         <button type="submit" class="d-none"><img src="<?= assets('img/core-img/search-icon.png')?>" alt="Search"></button>
                                     </form>

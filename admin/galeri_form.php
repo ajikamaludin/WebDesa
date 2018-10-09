@@ -2,16 +2,17 @@
 include 'view/header.php';
 
 $error = null;
-$galeri = ['id' => null,'nama' => ''];
+$galeri = ['id' => null,'nama' => '','deskripsi' => ''];
 
 
 if(isset($_POST['submit'])){
+  $deskripsi = $_POST['deskripsi'];
   $nama = $_POST['nama'];
   $id = $_POST['id'];
   if(isset($_POST['id'])){
-    $error = ubahGaleri($id, $nama);
+    $error = ubahGaleri($id, $nama, $deskripsi);
   }else{
-    $error = tambahGaleri($nama);
+    $error = tambahGaleri($nama, $deskripsi);
   }
 }
 if(isset($_GET['id'])){
@@ -48,6 +49,8 @@ if(isset($_GET['id'])){
           <input type="hidden" class="form-control" name="id" aria-required="true" value="<?= $id ?>">
         <?php } ?>
         <input type="text" class="form-control" name="nama" aria-required="true" value="<?= $galeri['nama'] ?>" required>
+        <label class="control-label" for="tag-nama">Deskripsi</label>
+        <textarea class="form-control" name="deskripsi" aria-required="true" rows="7" required><?= $galeri['deskripsi'] ?></textarea>
 
         <div class="help-block"></div>
         

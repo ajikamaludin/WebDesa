@@ -5,15 +5,15 @@ include 'function/init.php';
 <?php include 'view/header_index.php' ?>
 
     <!-- ***** Welcome Area Start ***** -->
-    <section class="welcome_area clearfix" id="home" >
+    <section class="clearfix" id="home" >
         <div class="mosh-about-us-thumb wow fadeInUp" data-wow-delay="0.5s">
             <div class="hero-slides owl-carousel">
             <?php if(getBanners() != null) {?>
                 <?php foreach(getBanners() as $banner ){?>
             <!-- Single Hero Slides -->
-                <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                <div class="justify-content-center">
                     <div class="hero-slide-content text-center">
-                        <img class="slide-img" src="<?= $banner['gambar'] ?>" alt="">
+                        <img class="slide-img" src="<?= $banner['gambar'] ?>" alt="" style="object-fit: cover;">
                     </div>
                 </div>
                 <?php } }?>
@@ -23,16 +23,7 @@ include 'function/init.php';
     <!-- ***** Welcome Area End ***** -->
 
     <!-- ***** Service Area Start ***** -->
-    <div class="container" style="margin-top: 10%;">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <hr style="height: 10px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    <section class="mosh-more-services-area d-sm-flex clearfix">
+    <section class="mosh-more-services-area d-sm-flex clearfix" style="margin-top: 50px;">
     <?php if(getBeritas() != null) {?>
     <?php foreach(getBeritas() as $berita){?>
         <div class="single-more-service-area">

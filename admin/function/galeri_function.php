@@ -24,11 +24,12 @@ function tampilanGaleri(){
     return $koneksi->query($sql);
 }
 
-function tambahGaleri($nama){
+function tambahGaleri($nama, $deskripsi){
     global $koneksi;
     $nama = $koneksi->cekString($nama);
+    $deskripsi = $koneksi->cekString($deskripsi);
     if(!empty($nama)){
-        $sql = "INSERT INTO `galeri` (`nama`) VALUES ('$nama')";
+        $sql = "INSERT INTO `galeri` (`nama`,`deskripsi`) VALUES ('$nama','$deskripsi')";
         if($koneksi->run($sql)){
             $pesan = 'Berhasil Menambahkan Galeri';
             redirectGaleri($pesan);
@@ -50,12 +51,13 @@ function getGaleri($id){
     return $data;
 }
 
-function ubahGaleri($id, $nama){
+function ubahGaleri($id, $nama, $deskripsi){
     global $koneksi;
     $id = $koneksi->cekString($id);
     $nama = $koneksi->cekString($nama);
+    $deskripsi = $koneksi->cekString($deskripsi);
     if(!empty($nama)){
-        $sql = "UPDATE `galeri` SET `nama` = '$nama' WHERE `id_galeri` = '$id'";
+        $sql = "UPDATE `galeri` SET `nama` = '$nama',`deskripsi` = '$deskripsi' WHERE `id_galeri` = '$id'";
         if($koneksi->run($sql)){
             $pesan = 'Berhasil Mengubah Galeri';
             redirectGaleri($pesan);

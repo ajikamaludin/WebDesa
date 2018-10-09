@@ -197,10 +197,6 @@ function uploadFiles($file, $name = null){
     return false;
 }
 
-function formatWaktu($datetime){
-    return date("F jS, Y", strtotime($datetime));
-}
-
 function formatUrl($url){
     if(substr($url, 0, 4) != 'http'){
         $url = 'http://'.$url;

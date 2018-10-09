@@ -58,13 +58,15 @@ function cutText($text, $limit = 300){
     return $kalimat;
 }
 
-function getGaleriHeader(){
+function getGaleriHeader($limit = 8){
     global $koneksi;
     $sql = "SELECT * FROM `galeri` 
     JOIN `gambar_galeri` ON galeri.id_galeri = gambar_galeri.id_galeri 
     GROUP BY galeri.nama 
-    ORDER BY galeri.id_galeri DESC
-    LIMIT 0,8";
+    ORDER BY galeri.id_galeri DESC";
+    if($limit != null){
+        $sql .= "LIMIT 0,$limit";
+    }
     return $koneksi->query($sql);
 }
 
@@ -113,4 +115,24 @@ function paginationFront($data, $records_per_page = 9){
         $records_per_page
     );
     return $data;
+}
+
+function getGaleriOne($id){
+    global $koneksi;
+    $id = $koneksi->cekString($id);
+    $sql = "SELECT * FROM galeri WHERE id_galeri = '$id'";    
+    $datas = $koneksi->singleQuery($sql);
+    if($datas != null){
+        $datas['gambar'] = [];
+        $sql = "SELECT * FROM gambar_galeri WHERE id_galeri = '$id'";
+        $gambars = $koneksi->query($sql);
+        foreach($gambars as $gambar){
+            $datas['gambar'][] = $gambar;
+        }
+    }
+    return $datas;
+}
+
+function formatWaktu($datetime){
+    return date("F jS, Y", strtotime($datetime));
 }

@@ -14,7 +14,7 @@
                                 <?php $archives = getArchives(); 
                                 if($archives != null){
                                     foreach($archives as $archive){?>
-                                    <li><a href="?arsip=<?=$archive['slug']?>"><?=$archive['nama']?></a></li>
+                                    <li><a href="berita.php?arsip=<?=$archive['slug']?>"><?=$archive['nama']?></a></li>
                                 <?php } }else{ ?>
                                     <li>Tidak Ada Arsip</li>
                                 <?php } ?>
@@ -27,7 +27,7 @@
                             <?php $kategoris = getKategoris(); 
                                 if($kategoris != null){
                                     foreach($kategoris as $kategori){?>
-                                <li><a href="?kategori=<?= $kategori['slug'] ?>"><?= $kategori['nama'] ?></a></li>
+                                <li><a href="berita.php?kategori=<?= $kategori['slug'] ?>"><?= $kategori['nama'] ?></a></li>
                                 <?php } }else{ ?>
                                     <li>Tidak Ada Kategori</li>
                                 <?php } ?>
@@ -44,7 +44,7 @@
                                     <img src="<?= $berita['gambar'] ?>" alt="gambar">
                                 </div>
                                 <div class="latest-blog-post-content">
-                                    <h6><a href="?q=<?= $berita['slug'] ?>"><?= $berita['judul'] ?></a></h6>
+                                    <h6><a href="berita.php?q=<?= $berita['slug'] ?>"><?= $berita['judul'] ?></a></h6>
                                     <div class="post-meta">
                                         <h6>By Admin / <?= formatWaktu($berita['tgl_dibuat']) ?></h6>
                                     </div>

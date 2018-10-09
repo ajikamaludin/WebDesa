@@ -8,7 +8,7 @@
                             <div class="post-meta">
                                 <h6>By <a href="#">Admin,</a><a href="#"><?= formatWaktu($galeris['tgl_dibuat']) ?></a></h6>
                             </div>
-                        <h2>Judul Foto</h2>
+                        <h2><?= $galeris['nama'] ?></h2>
                     </div>
                 </div>
             </div>

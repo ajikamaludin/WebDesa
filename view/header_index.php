@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Website Bangunkerto</title>
+    <title><?= getPengaturan()['nama'];?></title>
 
     <!-- Favicon -->
     <link rel="icon" href="<?= getPengaturan()['logo'];?>">

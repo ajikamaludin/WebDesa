@@ -89,3 +89,9 @@ function tambahPesan($nama, $email, $subject, $message){
     }
     return false;
 }
+
+function getDokumens($limit = 6){
+    global $koneksi;
+    $sql = "SELECT * FROM upload_file ORDER BY `id_file` DESC LIMIT 0, $limit";
+    return $koneksi->query($sql);
+}

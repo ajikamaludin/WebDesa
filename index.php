@@ -8,6 +8,7 @@ include 'function/init.php';
     <section class="welcome_area clearfix" id="home" >
         <div class="mosh-about-us-thumb wow fadeInUp" data-wow-delay="0.5s">
             <div class="hero-slides owl-carousel">
+            <?php if(getBanners() != null) {?>
                 <?php foreach(getBanners() as $banner ){?>
             <!-- Single Hero Slides -->
                 <div class="single-hero-slide d-flex align-items-center justify-content-center">
@@ -15,7 +16,7 @@ include 'function/init.php';
                         <img class="slide-img" src="<?= $banner['gambar'] ?>" alt="">
                     </div>
                 </div>
-                <?php } ?>
+                <?php } }?>
             </div>        
         </div>
     </section>
@@ -32,6 +33,7 @@ include 'function/init.php';
             </div>
         </div>
     <section class="mosh-more-services-area d-sm-flex clearfix">
+    <?php if(getBeritas() != null) {?>
     <?php foreach(getBeritas() as $berita){?>
         <div class="single-more-service-area">
             <div class="more-service-content text-center wow fadeInUp" data-wow-delay=".1s">
@@ -40,7 +42,7 @@ include 'function/init.php';
                 <p> <?= cutText($berita['isi']) ?> </p>
             </div>
         </div>
-        <?php } ?>
+        <?php } } ?>
 
     </section>
     <div class="col-12 text-center mt-50">
@@ -62,6 +64,7 @@ include 'function/init.php';
 
         <div class="mosh-portfolio">
             <!-- Single gallery Item Start -->
+            <?php if(getGaleriHeader() != null) {?>
             <?php foreach(getGaleriHeader() as $galeri){?>
             <div class="single_gallery_item gd">
                 <img src="<?= $galeri['gambar'] ?>" alt="">
@@ -72,7 +75,7 @@ include 'function/init.php';
                     </div>
                 </div>
             </div>
-            <?php } ?>
+            <?php } }?>
             
             
         </div>
@@ -98,9 +101,10 @@ include 'function/init.php';
                         <div class="single-blog wow fadeInUp" data-wow-delay="0.7s">
                             <div class="media" style="width: 100%; height: auto;border: 10px solid lightblue">
                                 <div class="media-body" style="margin: 20px auto;">
+                                <?php if(getGaleriHeader() != null) {?>
                                 <?php foreach(getPengumumanUpdate() as $pengumuman) {?>
                                     <h3><?= $pengumuman['pengumuman'] ?></h3>
-                                <?php } ?>
+                                <?php } }?>
                                 </div>
                             </div>
                         </div>

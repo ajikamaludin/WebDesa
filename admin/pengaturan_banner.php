@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
             </td>
             <td> 
               <a href="hapus.php?table=banner&key=id_banner&id=<?= $banner['id_banner'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-2x"></span>
+                <span class="fa fa-trash-o fa-2x"></span>Hapus
               </a>
             </td>
           </tr>

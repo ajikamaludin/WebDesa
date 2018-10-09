@@ -32,38 +32,19 @@ include 'function/init.php';
             </div>
         </div>
     <section class="mosh-more-services-area d-sm-flex clearfix">
+    <?php foreach(getBeritas() as $berita){?>
         <div class="single-more-service-area">
             <div class="more-service-content text-center wow fadeInUp" data-wow-delay=".1s">
-                <img src="<?= assets('img/bg-img/cta-2.jpg')?>" alt="" style="width: 350px; height: 250px;">
-                <a href="berita-single.html" style="font-size: 25px;">Judul Berita</a>
-                <p> Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat </p>
+                <img src="<?= $berita['gambar'] ?>" alt="" style="width: 350px; height: 250px;">
+                <a href="berita.php?q=<?= $berita['slug'] ?>" style="font-size: 25px;"><?= $berita['judul'] ?></a>
+                <p> <?= cutText($berita['isi']) ?> </p>
             </div>
         </div>
-        <div class="single-more-service-area">
-            <div class="more-service-content text-center wow fadeInUp" data-wow-delay=".4s">
-                <img src="<?= assets('img/bg-img/cta-2.jpg')?>" alt="" style="width: 350px; height: 250px;">
-                <a href="#" style="font-size: 25px;">Judul Berita</a>
-                <p> Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat </p>
-            </div>
-        </div>
-        <div class="single-more-service-area">
-            <div class="more-service-content text-center wow fadeInUp" data-wow-delay=".7s">
-             <img src="<?= assets('img/bg-img/cta-2.jpg')?>" alt="" style="width: 350px; height: 250px;">
-                <a href="#" style="font-size: 25px;">Judul Berita</a>
-                <p> Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat </p>
-            </div>
-        </div>
-        <div class="single-more-service-area">
-            <div class="more-service-content text-center wow fadeInUp" data-wow-delay="1s">
-                <img src="<?= assets('img/bg-img/cta-2.jpg')?>" alt="" style="width: 350px; height: 250px;">
-                <a href="#" style="font-size: 25px;">Judul Berita</a>
-                <p> Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat Deskripsi Singkat </p>
-            </div>
-        </div>
+        <?php } ?>
 
     </section>
     <div class="col-12 text-center mt-50">
-        <a href="berita.html" class="btn mosh-btn">Lebih Lanjut</a>
+        <a href="berita.php" class="btn mosh-btn">Lebih Lanjut</a>
     </div>
 
      <!-- ***** Portfolio Area Start ***** -->
@@ -81,89 +62,22 @@ include 'function/init.php';
 
         <div class="mosh-portfolio">
             <!-- Single gallery Item Start -->
+            <?php foreach(getGaleriHeader() as $galeri){?>
             <div class="single_gallery_item gd">
-                <img src="<?= assets('img/bg-img/cta.jpg')?>" alt="">
+                <img src="<?= $galeri['gambar'] ?>" alt="">
                 <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
                     <div class="port-hover-text text-center">
-                        <h4>Judul Foto</h4>
-                        <a href="galeri-single.html">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item bi">
-                <img src="<?= assets('img/portfolio-img/2.jpg')?>" alt="">
-                <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
-                    <div class="port-hover-text text-center">
-                       <h4>Judul Foto</h4>
-                        <a href="#">Lihat Selengkapnya</a>
+                        <h4><?= $galeri['nama'] ?></h4>
+                        <a href="galeri.php?q=<?= $galeri['id_galeri'] ?>">Lihat Selengkapnya</a>
                     </div>
                 </div>
             </div>
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item gd bi">
-                <img src="<?= assets('img/portfolio-img/3.jpg')?>" alt="">
-                <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
-                    <div class="port-hover-text text-center">
-                        <h4>Judul Foto</h4>
-                        <a href="#">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item pho">
-                <img src="<?= assets('img/bg-img/cta.jpg')?>" alt="">
-                <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
-                    <div class="port-hover-text text-center">
-                        <h4>Judul Foto</h4>
-                        <a href="#">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item pho">
-                <img src="<?= assets('img/portfolio-img/5.jpg')?>" alt="">
-                <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
-                    <div class="port-hover-text text-center">
-                        <h4>Judul Foto</h4>
-                        <a href="#">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item wd pc">
-                <img src="<?= assets('img/portfolio-img/6.jpg')?>" alt="">
-                <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
-                    <div class="port-hover-text text-center">
-                        <h4>Judul Foto</h4>
-                        <a href="#">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item wd">
-                <img src="<?= assets('img/bg-img/cta.jpg')?>" alt="">
-                <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
-                    <div class="port-hover-text text-center">
-                        <h4>Judul Foto</h4>
-                        <a href="#">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item pc">
-                <img src="<?= assets('img/portfolio-img/8.jpg')?>" alt="">
-                <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
-                    <div class="port-hover-text text-center">
-                        <h4>Judul Foto</h4>
-                        <a href="#">Lihat Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
+            
+            
         </div>
         <div class="col-12 text-center mt-100" style="margin-bottom: 10%;">
-            <a href="galeri.html" class="btn mosh-btn">Lebih Lanjut</a>
+            <a href="galeri.php" class="btn mosh-btn">Lebih Lanjut</a>
         </div>
     </section>
 
@@ -184,9 +98,9 @@ include 'function/init.php';
                         <div class="single-blog wow fadeInUp" data-wow-delay="0.7s">
                             <div class="media" style="width: 100%; height: auto;border: 10px solid lightblue">
                                 <div class="media-body" style="margin: 20px auto;">
-                                    <h3>Pengumuman ini akan hilang dalam waktu yang ditentukan</h3>
-                                     <h3>Pengumuman ini akan hilang dalam waktu yang ditentukan</h3>
-                                      <h3>Pengumuman ini akan hilang dalam waktu yang ditentukan</h3>
+                                <?php foreach(getPengumumanUpdate() as $pengumuman) {?>
+                                    <h3><?= $pengumuman['pengumuman'] ?></h3>
+                                <?php } ?>
                                 </div>
                             </div>
                         </div>

@@ -47,9 +47,9 @@ include 'view/header.php';
             <td><?= $pengumuman['pengumuman'] ?></td>
             <td><?= formatWaktu($pengumuman['tgl_berakhir']) ?></td>
             <td> 
-              <a href="pengumuman_form.php?id=<?= $pengumuman['id_pengumuman'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="pengumuman_form.php?id=<?= $pengumuman['id_pengumuman'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=pengumuman&key=id_pengumuman&id=<?= $pengumuman['id_pengumuman'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
             </td>
           </tr>

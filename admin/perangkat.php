@@ -49,9 +49,9 @@ include 'view/header.php';
             <td><?= $perangkat['keterangan'] ?></td>
             <td><?= ($perangkat['status'] == 0) ? 'Aktif' : 'Tidak Aktif' ?></td>
             <td> 
-              <a href="perangkat_form.php?id=<?= $perangkat['id_perangkat'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="perangkat_form.php?id=<?= $perangkat['id_perangkat'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=perangkat_desa&key=id_perangkat&id=<?= $perangkat['id_perangkat'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
             </td>
           </tr>

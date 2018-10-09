@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
             <td><a href="<?= $berka['file'] ?>"><?= $berka['nama'] ?></a></td>
             <td> 
               <a href="hapus.php?table=upload_file&key=id_file&id=<?= $berka['id_file'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-2x"></span>
+                <span class="fa fa-trash-o fa-2x"></span>Hapus
               </a>
             </td>
           </tr>

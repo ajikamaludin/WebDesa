@@ -33,9 +33,9 @@ $notAllowed = ['Home','Profile','Berita','Galeri','Dokumen'];
                     <li>
                         <?= $menu['nama'] ?>
                         <?php if(!in_array($menu['nama'], $notAllowed)){ ?>
-                            <a href="menu_form.php?id=<?= $menu['id_menu'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+                            <a href="menu_form.php?id=<?= $menu['id_menu'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
                             <a href="hapus.php?table=menu&key=id_menu&id=<?= $menu['id_menu'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                                <span class="fa fa-trash-o fa-1x"></span>
+                                <span class="fa fa-trash-o fa-1x"></span>Hapus
                             </a>
                         <?php } ?>
                         
@@ -45,9 +45,9 @@ $notAllowed = ['Home','Profile','Berita','Galeri','Dokumen'];
                         <?php foreach($menu['child'] as $child){?>
                             <li>
                                 <?= $child['nama'] ?> 
-                                <a href="menu_form.php?id=<?= $child['id_menu'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+                                <a href="menu_form.php?id=<?= $child['id_menu'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
                                 <a href="hapus.php?table=menu&key=id_menu&id=<?= $child['id_menu'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                                    <span class="fa fa-trash-o fa-1x"></span>
+                                    <span class="fa fa-trash-o fa-1x"></span>Hapus
                                 </a>
                             </li>
                         

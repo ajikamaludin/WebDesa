@@ -47,9 +47,9 @@ include 'view/header.php';
             <td><?= $link['nama'] ?></td>
             <td> <a href="<?= $link['url'] ?>" target="_blank"><?= $link['url'] ?></a> </td>
             <td> 
-              <a href="link_form.php?id=<?= $link['id_link'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="link_form.php?id=<?= $link['id_link'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=link_terkait&key=id_link&id=<?= $link['id_link'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
             </td>
           </tr>

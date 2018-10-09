@@ -52,7 +52,7 @@ $galeri = getGaleri($id);
                 </td>
                 <td>
                     <a href="hapus.php?table=gambar_galeri&key=id_gambar&id=<?= $gambar['id_gambar'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                        <span class="fa fa-trash-o fa-3x"></span>
+                        <span class="fa fa-trash-o fa-3x"></span>Hapus
                     </a>
                 </td>
             </tr>

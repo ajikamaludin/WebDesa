@@ -47,9 +47,9 @@ include 'view/header.php';
             <td><?= $halaman['nama'] ?></td>
             <td><a href="<?= urlPage($halaman['slug']) ?>" target="_blank"><?= urlPage($halaman['slug']) ?></a></td>
             <td> 
-              <a href="halaman_form.php?id=<?= $halaman['id_page'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="halaman_form.php?id=<?= $halaman['id_page'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=page&key=id_page&id=<?= $halaman['id_page'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
             </td>
           </tr>

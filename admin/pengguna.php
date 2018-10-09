@@ -44,11 +44,11 @@ include 'view/header.php';
           <tr>
             <td><?= $pengguna['email'] ?></td>
             <td> 
-              <a href="pengguna_password.php?id=<?= $pengguna['id_user'] ?>" title="Ubah Password" aria-label="Ubah Password"><span class="fa fa-lock fa-1x"></span></a>
-              <a href="pengguna_form.php?id=<?= $pengguna['id_user'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="pengguna_password.php?id=<?= $pengguna['id_user'] ?>" title="Ubah Password" aria-label="Ubah Password"><span class="fa fa-lock fa-1x"></span>Ubah Password</a>
+              <a href="pengguna_form.php?id=<?= $pengguna['id_user'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah Data</a>
               <?php if($_SESSION['admin'] != $pengguna['username']) {?>
               <a href="hapus.php?table=user&key=id_user&id=<?= $pengguna['id_user'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
               <?php } ?>
             </td>

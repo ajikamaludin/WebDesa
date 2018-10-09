@@ -10,7 +10,7 @@ function redirectBerita($pesan, $error = false){
 }
 function tampilanBerita(){
     global $koneksi;
-    $sql = 'SELECT * FROM post';
+    $sql = 'SELECT * FROM post ORDER BY tgl_dibuat DESC';
     return $koneksi->query($sql);
 }
 function tambahBerita($judul, $status, $gambar, $isi, $kategori){

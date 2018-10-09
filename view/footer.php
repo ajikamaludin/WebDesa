@@ -6,22 +6,23 @@
                 <div class="row">
                     <div class="col-12 col-sm-6 col-lg-6">
                         <div class="single-footer-widget mb-100">
+                            <h5>Hubungin Kami</h5>
                             <div class="contact-form-area">
                                 <form action="pesan.php" method="post">
                                     <div class="row">
                                         <div class="col-12 col-md-6">
-                                            <input type="text" class="form-control" id="name" name="nama" placeholder="Nama">
+                                            <input type="text" class="form-control" id="name" name="nama" placeholder="Nama" required>
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required>
                                         </div>
                                         <div class="col-12">
-                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subjek">
+                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subjek" required>
                                         </div>
                                         <div class="col-12">
-                                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Pesan"></textarea>
+                                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Pesan" required></textarea>
                                         </div>
-                                        <button class="btn mosh-btn mt-50 ml-15" type="submit">Kirim Pesan</button>
+                                        <button class="btn mosh-btn mt-50 ml-15" type="submit" name="submit" value="submit">Kirim Pesan</button>
                                     </div>
                                 </form>
                             </div>
@@ -31,11 +32,9 @@
                         <div class="single-footer-widget mb-100">
                             <h5>Link Terkait</h5>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                                <li><a href="#">Services &amp; Features</a></li>
-                                <li><a href="#">Accordions and tabs</a></li>
-                                <li><a href="#">Menu ideas</a></li>
+                                <?php foreach(getLinkTerkait() as $link){ ?>
+                                <li><a href="<?= $link['url'] ?>"><?= $link['nama'] ?></a></li>
+                                <?php }?>
                             </ul>
                         </div>
                     </div>

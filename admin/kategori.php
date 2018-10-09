@@ -44,9 +44,9 @@ include 'view/header.php';
           <tr>
             <td><?= $kategori['nama'] ?></td>
             <td> 
-              <a href="kategori_form.php?id=<?= $kategori['id_kategori'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="kategori_form.php?id=<?= $kategori['id_kategori'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=kategori_post&key=id_kategori&id=<?= $kategori['id_kategori'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
             </td>
           </tr>

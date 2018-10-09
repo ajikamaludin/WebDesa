@@ -47,9 +47,9 @@ include 'view/header.php';
             <td><?= $berita['judul'] ?></td>
             <td><?= ($berita['status'] == 0) ? 'Publish' : 'Draft' ?></td>
             <td> 
-              <a href="berita_form.php?id=<?= $berita['id_post'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="berita_form.php?id=<?= $berita['id_post'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=post&key=id_post&id=<?= $berita['id_post'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
             </td>
           </tr>

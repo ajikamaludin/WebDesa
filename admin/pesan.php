@@ -43,7 +43,7 @@ include 'view/header.php';
         <?php }else{ 
         foreach($pesans as $pesan ):?>
           <tr>
-            <td><?= "<b>".$pesan['nama']."</b><br> "."(".$pesan['email'].")<br>".$pesan['kontak'] ?></td>
+            <td><?= "<b>".$pesan['nama']."</b><br> "."(".$pesan['email'].")<br>"?></td>
             <td><?= $pesan['isi'] ?></td>
             <td><?= formatWaktu($pesan['tgl_dibuat']) ?></td>
           </tr>

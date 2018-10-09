@@ -44,9 +44,9 @@ include 'view/header.php';
           <tr>
             <td><?= $jabatan['nama'] ?></td>
             <td> 
-              <a href="jabatan_form.php?id=<?= $jabatan['id_jabatan'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span></a>
+              <a href="jabatan_form.php?id=<?= $jabatan['id_jabatan'] ?>" title="Update" aria-label="Update"><span class="fa fa-pencil-square-o fa-1x"></span>Ubah</a>
               <a href="hapus.php?table=jabatan&key=id_jabatan&id=<?= $jabatan['id_jabatan'] ?>" title="Delete" aria-label="Delete" onclick="return confirm('Apa anda yakin ingin menghapus item ?');">
-                <span class="fa fa-trash-o fa-1x"></span>
+                <span class="fa fa-trash-o fa-1x"></span>Hapus
               </a>
             </td>
           </tr>

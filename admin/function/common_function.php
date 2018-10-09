@@ -9,6 +9,7 @@ function url($string){
 }
 
 function urlPage($string){
+    //TODO: change the url function if front end page done
     return 'http://'.$_SERVER['HTTP_HOST'].'/page/?q='.$string;
 }
 
@@ -159,11 +160,6 @@ function pagination($data, $records_per_page = 10){
         $records_per_page
     );
     return $data;
-}
-
-function slug($name){
-    global $slugify;
-    return $slugify->slugify($name, '_');
 }
 
 function uploadFiles($file, $name = null){

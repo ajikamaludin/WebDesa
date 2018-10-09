@@ -15,6 +15,7 @@ function tampilanBerita(){
 }
 function tambahBerita($judul, $status, $gambar, $isi, $kategori){
     global $koneksi;
+    $now = date('Y-m-d');
     $judul = $koneksi->cekString($judul);
     $status = $koneksi->cekString($status);
     $isi = $koneksi->cekString($isi);
@@ -28,9 +29,9 @@ function tambahBerita($judul, $status, $gambar, $isi, $kategori){
         redirectBerita($pesan, true);
     }
     if(!empty($judul) && !empty($isi) &&!empty($kategori) &&!empty($slug) &&!empty($gambar)){
-        $sql = "INSERT INTO `post` (`judul`, `isi`, `gambar`, `status`, `id_kategori`, `slug`) 
+        $sql = "INSERT INTO `post` (`judul`, `isi`, `gambar`, `status`, `id_kategori`, `slug`, `tgl_diupdate`) 
                 VALUES 
-                ('$judul', '$isi', '$gambar', '$status',  '$kategori', '$slug')";
+                ('$judul', '$isi', '$gambar', '$status',  '$kategori', '$slug', '$now')";
         if($koneksi->run($sql)){
             $pesan = 'Berhasil Menambahkan Berita';
             redirectBerita($pesan);
@@ -54,6 +55,7 @@ function getBerita($id){
 
 function ubahBerita($id, $judul, $status, $gambar_lama, $gambar_baru, $isi, $kategori){
     global $koneksi;
+    $now = date('Y-m-d');
     $id = $koneksi->cekString($id);
     $judul = $koneksi->cekString($judul);
     $status = $koneksi->cekString($status);
@@ -79,7 +81,8 @@ function ubahBerita($id, $judul, $status, $gambar_lama, $gambar_baru, $isi, $kat
                 `gambar` = '$gambar', 
                 `status` = '$status',
                 `id_kategori` = '$kategori', 
-                `slug` = '$slug' 
+                `slug` = '$slug',
+                `tgl_diupdate` = '$now' 
                 WHERE `post`.`id_post` = '$id'";
         if($koneksi->run($sql)){
             $pesan = 'Berhasil Mengubah Berita';

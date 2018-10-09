@@ -1,5 +1,10 @@
 <?php
 
+function slug($name){
+    global $slugify;
+    return $slugify->slugify($name, '_');
+}
+
 function assets($file){
     return 'http://'.$_SERVER['HTTP_HOST'].'/assets/'.$file;
 }
@@ -135,4 +140,93 @@ function getGaleriOne($id){
 
 function formatWaktu($datetime){
     return date("F jS, Y", strtotime($datetime));
+}
+
+function formatWaktuBulan($datetime){
+    return date("F Y", strtotime($datetime));
+}
+
+function decodeArchive($archive){
+    $tahun = substr($archive, 0,4);
+    $bulan = substr($archive, 4,2);
+    return $tahun.'-'.$bulan;
+}
+
+function getFindIdKategori($kategori){
+    global $koneksi;
+    $kategori = $koneksi->cekString($kategori);
+    $kategori = str_replace('_',' ', $kategori);
+    $kategori = $koneksi->cekString($kategori);
+    $sql = "SELECT id_kategori FROM kategori_post WHERE nama LIKE '%$kategori%'";
+    $kategori = $koneksi->singleQuery($sql);
+    if($kategori != null){
+        return $kategori['id_kategori'];
+    }
+    return $kategori;
+}
+
+function getBeritasAll($search, $archive = null, $kategori = null){
+    global $koneksi;
+    
+    $sql = "SELECT * FROM post WHERE `status` = '0' ORDER BY tgl_dibuat DESC";
+
+    if($search != null){
+        $search = $koneksi->cekString($search);
+        $sql = "SELECT * FROM post WHERE `status` = '0' AND `judul` LIKE '%$search%' OR `isi` LIKE '%$search%' ORDER BY tgl_dibuat DESC";
+    }else if($archive != null){
+        $archive = $koneksi->cekString($archive);
+        $archive = decodeArchive($archive);
+        $archive = $koneksi->cekString($archive);
+        $sql = "SELECT * FROM post WHERE `status` = '0' AND `tgl_diupdate` LIKE '%$archive%' ORDER BY tgl_dibuat DESC";
+    }else if($kategori != null){
+        $kategori = getFindIdKategori($kategori);
+        if($kategori != null){
+            $id_kategori = $koneksi->cekString($kategori);
+            $sql = "SELECT * FROM post WHERE `status` = '0' AND `id_kategori` = '$id_kategori' ORDER BY tgl_dibuat DESC";        
+        }
+    }
+    return $koneksi->query($sql);
+}
+
+function getKategoriName($id){
+    global $koneksi;
+    $id = $koneksi->cekString($id);
+    $sql = "SELECT nama FROM kategori_post WHERE id_kategori = '$id'";
+    $nama = $koneksi->singleQuery($sql);
+    if($nama != null){
+        return $nama['nama'];
+    }else{
+        return 'Tidak Ada Kategori';
+    }
+}
+function formatWaktuSlug($date){
+    $date = substr($date,0,7);
+    $date = str_replace('-','',$date);
+    return $date;
+}
+
+function getArchives(){
+    global $koneksi;
+    $datas = null;
+    $sql = "SELECT tgl_diupdate FROM post WHERE `status` = '0' GROUP BY tgl_diupdate ORDER BY tgl_dibuat DESC";
+    $archives = $koneksi->query($sql);
+    if($archives == null){ return $datas; }
+    foreach($archives as $archive){
+        $data = [ 'nama' => formatWaktuBulan($archive['tgl_diupdate']), 'slug' => formatWaktuSlug($archive['tgl_diupdate']) ];
+        $datas[] = $data;
+    }
+    return $datas;
+}
+
+function getKategoris(){
+    global $koneksi;
+    $datas = null;
+    $sql = "SELECT nama FROM kategori_post GROUP BY nama ORDER BY id_kategori DESC";
+    $kategoris = $koneksi->query($sql);
+    if($kategoris != null){
+        foreach($kategoris as $kategori){
+            $datas[] = ['nama' => $kategori['nama'], 'slug' => slug($kategori['nama'])];
+        }
+    }
+    return $datas;
 }

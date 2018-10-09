@@ -171,7 +171,10 @@ function uploadFiles($file, $name = null){
         $fileExtension = $file['type'];
         
         $allowedImage = ["image/jpeg","image/png","image/jpg"];
-        $allowedDoc = ["application/pdf","application/msword","application/wps-office.doc","application/doc","application/docx","application/odt","application/rtf","application/xls","application/xlsx","application/ods","application/zip"];
+        $allowedDoc = ["application/pdf","application/msword","application/wps-office.doc","application/doc",
+                        "application/docx","application/odt","application/rtf","application/xls","application/xlsx",
+                        "application/ods","application/zip"];
+                        
         if(in_array($fileExtension, $allowedImage)){
             $fileDotExtension = '.'.substr($fileExtension, 6 ,5);
             $fileNameFinal = ($name != null) ? $name.$fileDotExtension : time().$fileDotExtension;

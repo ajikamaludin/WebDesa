@@ -27,7 +27,7 @@ $notAllowed = ['Home','Profile','Berita','Galeri','Dokumen'];
        <a href="menu_form.php" class="btn btn-primary">Tambah Menu</a>
        <div class="help-block"></div>
        <div class="row">
-           <div class="col-md-4" style="font-size:20px;">
+           <div class="col-md-6" style="font-size:20px;">
                 <ol>
        <?php foreach(tampilanMenu() as $menu){ ?>
                     <li>

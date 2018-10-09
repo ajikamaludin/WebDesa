@@ -1,5 +1,7 @@
 <?php
-
+function getUrl(){
+    return $_SERVER['HTTP_HOST'];
+}
 function slug($name){
     global $slugify;
     return $slugify->slugify($name, '_');
@@ -229,4 +231,14 @@ function getKategoris(){
         }
     }
     return $datas;
+}
+
+function getBeritaOne($slug){
+    global $koneksi;
+    $slug = $koneksi->cekString($slug);
+    $sql = "SELECT * FROM post WHERE slug = '$slug'";
+    $data = $koneksi->singleQuery($sql);
+    if($data != null){
+        return $data;
+    }return null;
 }

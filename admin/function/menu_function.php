@@ -64,7 +64,7 @@ function ubahMenu($id, $parent,  $nama, $url){
     $id = $koneksi->cekString($id);
     $parent = $koneksi->cekString($parent);
     $nama = $koneksi->cekString($nama);
-    $url = formatUrl($url);
+    // $url = formatUrl($url);
     $url = $koneksi->cekString($url);
     if(!empty($nama)){
         $sql = "UPDATE `menu` SET `parent` = '$parent', `nama` = '$nama', `url` = '$url' WHERE `menu`.`id_menu` = '$id'";

@@ -6,7 +6,7 @@ $page = 'Dokumen';
 include 'view/header.php';
 ?>
 <!--BODY START: CONTENT-->
-    <section class="mosh--services-area section_padding_100">
+    <section class="mosh-services-area section_padding_100">
         <div class="container">
             <div class="row">
                 <!-- Single Feature Area -->

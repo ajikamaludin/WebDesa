@@ -242,3 +242,19 @@ function getBeritaOne($slug){
         return $data;
     }return null;
 }
+
+function getStrukturs(){
+    global $koneksi;
+    $sql = "SELECT perangkat_desa.nama as orang, jabatan.nama as pangkat FROM `perangkat_desa` JOIN jabatan ON perangkat_desa.id_jabatan = jabatan.id_jabatan WHERE status = '0'";
+    $data = $koneksi->query($sql);
+    if($data != null){
+        return $data;
+    }return null;
+}
+
+function getPage($slug){
+    global $koneksi;
+    $slug = $koneksi->cekString($slug);
+    $sql = "SELECT * FROM `page` WHERE slug = '$slug'";
+    return $koneksi->singleQuery($sql);
+}

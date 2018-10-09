@@ -10,7 +10,7 @@ function url($string){
 
 function urlPage($string){
     //TODO: change the url function if front end page done
-    return 'http://'.$_SERVER['HTTP_HOST'].'/page/?q='.$string;
+    return 'http://'.$_SERVER['HTTP_HOST'].'/page.php?q='.$string;
 }
 
 function cekSession(){

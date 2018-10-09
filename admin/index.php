@@ -22,7 +22,7 @@ include 'view/header.php';
     <!-- Main content -->
     <section class="content">
       <?= printPesan(); ?>
-      <h2>Selamat Datang di Website Desa : <?= getPengaturan()['nama'] ?></h2>
+      <h2>Selamat Datang di : <?= getPengaturan()['nama'] ?></h2>
 
     </section>
     <!-- /.content -->

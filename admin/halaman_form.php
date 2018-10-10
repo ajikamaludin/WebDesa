@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
 ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
+
 <!-- Site wrapper -->
 <div class="wrapper">
 

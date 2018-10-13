@@ -8,7 +8,11 @@ function slug($name){
 }
 
 function assets($file){
-    return 'http://'.$_SERVER['HTTP_HOST'].'/assets/'.$file;
+    $protocol = 'http://';
+    if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80'){
+        $protocol = 'https://';
+    }
+    return $protocol.$_SERVER['HTTP_HOST'].'/assets/'.$file;
 }
 
 function getPengaturan(){

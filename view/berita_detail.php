@@ -36,7 +36,13 @@
                                         
                                             <script>
                                                 var disqus_config = function () {
-                                                    this.page.url = "<?= 'http://'.getUrl().'/page/'.$berita['slug'] ?>";
+                                                    <?php 
+                                                    $protocol =  'http://';
+                                                    if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80'){
+                                                        $protocol = 'https://';
+                                                    }
+                                                    ?>
+                                                    this.page.url = "<?= $protocol.getUrl().'/page/'.$berita['slug'] ?>";
                                                     this.page.identifier = '<?= $berita['slug'] ?>';
                                                 };
                                             (function() { var d = document, s = d.createElement('script');s.src = 'https://desa-bangun-kerto.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();

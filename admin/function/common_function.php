@@ -1,15 +1,27 @@
 <?php
 
 function assetsAdmin($file){
-    return 'http://'.$_SERVER['HTTP_HOST'].'/assets/admin_assets/'.$file;
+    $protocol =  'http://';
+    if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80'){
+        $protocol = 'https://';
+    }
+    return $protocol.$_SERVER['HTTP_HOST'].'/assets/admin_assets/'.$file;
 }
 
 function url($string){
-    return 'http://'.$_SERVER['HTTP_HOST'].'/'.$string;
+    $protocol =  'http://';
+    if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80'){
+        $protocol = 'https://';
+    }
+    return $protocol.$_SERVER['HTTP_HOST'].'/'.$string;
 }
 
 function urlPage($string){
-    return 'http://'.$_SERVER['HTTP_HOST'].'/page.php?q='.$string;
+    $protocol =  'http://';
+    if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80'){
+        $protocol = 'https://';
+    }
+    return $protocol.$_SERVER['HTTP_HOST'].'/page.php?q='.$string;
 }
 
 function cekSession(){
@@ -169,7 +181,7 @@ function uploadFiles($file, $name = null){
         $fileName = $file['name'];
         $filePath = $file['tmp_name'];
         $fileExtension = $file['type'];
-        
+
         $allowedImage = ["image/jpeg","image/png","image/jpg"];
         $allowedDoc = ["application/pdf","application/msword","application/wps-office.doc","application/doc",
                         "application/docx","application/odt","application/rtf","application/xls","application/xlsx",

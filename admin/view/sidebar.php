@@ -84,7 +84,7 @@ $pengguna = getPengguna();
           </ul>
         </li>
         <li class="<?= strpos(getPageName(), 'pengguna') ? 'active' : '' ?>"><a href="pengguna.php"><i class="fa fa-user-o"></i> <span>Pengguna</span></a></li>
-
+        <li class="<?= strpos(getPageName(), 'panduan') ? 'active' : '' ?>"><a href="panduan.pdf"><i class="fa fa-book"></i> <span>Panduan</span></a></li>
         <li><a href="logout.php"><i class="fa fa-sign-out"></i> <span>Keluar</span></a></li>
       </ul>
     </section>

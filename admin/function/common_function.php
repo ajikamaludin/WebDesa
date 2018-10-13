@@ -9,7 +9,6 @@ function url($string){
 }
 
 function urlPage($string){
-    //TODO: change the url function if front end page done
     return 'http://'.$_SERVER['HTTP_HOST'].'/page.php?q='.$string;
 }
 
@@ -166,14 +165,16 @@ function uploadFiles($file, $name = null){
     if($file['error'] == 0){
         $storageImage = dirname(dirname(__DIR__))."/assets/uploads/gambar/";
         $storageFile = dirname(dirname(__DIR__))."/assets/uploads/document/";
-
+        
+        $fileName = $file['name'];
         $filePath = $file['tmp_name'];
         $fileExtension = $file['type'];
         
         $allowedImage = ["image/jpeg","image/png","image/jpg"];
         $allowedDoc = ["application/pdf","application/msword","application/wps-office.doc","application/doc",
                         "application/docx","application/odt","application/rtf","application/xls","application/xlsx",
-                        "application/ods","application/zip"];
+                        "application/ods","application/zip","application/wps-office.docx","application/msword.doc"
+                        ,"application/msword.docx","application/msword.xlsx","application/msword.xls","application/msword.pdf"];
                         
         if(in_array($fileExtension, $allowedImage)){
             $fileDotExtension = '.'.substr($fileExtension, 6 ,5);
@@ -185,6 +186,21 @@ function uploadFiles($file, $name = null){
         }
         if(in_array($fileExtension, $allowedDoc)){
             $fileDotExtension = '.'.substr($fileExtension, 12 ,5);
+            if(strpos($fileName, 'doc')){
+                $fileDotExtension = '.doc';
+            }else if(strpos($fileName, 'docx')){
+                $fileDotExtension = '.docx';
+            }else if(strpos($fileName, 'pdf')){
+                $fileDotExtension = '.pdf';
+            }else if(strpos($fileName, 'zip')){
+                $fileDotExtension = '.zip';
+            }else if(strpos($fileName, 'rar')){
+                $fileDotExtension = '.rar';
+            }else if(strpos($fileName, 'xls')){
+                $fileDotExtension = '.xls';
+            }else if(strpos($fileName, 'xlsx')){
+                $fileDotExtension = '.xls';
+            }
             $fileNameFinal = ($name != null) ? $name.$fileDotExtension : time().$fileDotExtension;
             $fileFinalPath = $storageFile.$fileNameFinal;
             if(move_uploaded_file($filePath, $fileFinalPath)){

@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
       <form action="pengaturan_banner.php" method="post" enctype="multipart/form-data">
         <label class="control-label" for="tag-nama">Banner Baru : </label>
         <input type="file" id="banner" name="banner" required>
-        <sub>disarankan gambar banner dengan ukuran 1360 X 860, hanya berupa file png(lebih disarankan) atau jpg, banner dibatasi maksimal 7 banner</sub>
+        <sub>disarankan gambar banner dengan ukuran 1200 X 350, hanya berupa file png(lebih disarankan) atau jpg, banner dibatasi maksimal 7 banner</sub>
         <div class="help-block"></div>
         <input type="submit" class="btn btn-primary btn-flat" name="submit" value="Tambah">
       </form>

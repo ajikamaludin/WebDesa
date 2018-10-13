@@ -210,11 +210,13 @@
         height: 770px;
     }
     .mosh-team-slides .owl-prev {
-        left: -10px;
+        left: -30px;
+        margin-top: 30px;
     }
     .mosh-team-slides .owl-next {
         left: auto;
-        right: -10px;
+        right: -30px;
+        margin-top: 30px;
     }
     .subscribe-newsletter-content h2 {
         font-size: 24px;

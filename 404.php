@@ -6,11 +6,12 @@ include 'view/header.php';//body was started from here
 
 ?>
 <!-- ***** About Us Area Start ***** -->
-<section class="mosh-aboutUs-area" style="margin-bottom: 100px;">
+<section class="mosh-aboutUs-area" style="margin-bottom: 100px; margin-top: 200px">
     <div class="container">
         <div class="col-12 col-md-12">
                 <div class="mosh-about-us-content">
                     <div class="section-heading" style="margin: 30px auto; text-align: center;">
+                        <h1 style="font-size:250px;">404</h1>
                         <h2>Terjadi Kesalahan : Tidak ditemukan</h2>
                     </div>
                 </div>

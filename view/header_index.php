@@ -31,7 +31,7 @@
 
     <!-- ***** Header Area Start ***** -->
     
-    <header class="header_area clearfix" style="background-color: #25499f">
+    <header class="header_area clearfix" style="background: linear-gradient(#246bbf, #004bff);">
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <!-- Menu Area Start -->

@@ -1,5 +1,6 @@
+<script src="<?= assets('jssor.slider-27.5.0.min.js')?>"></script>
 <!-- ***** About Us Area Start ***** -->
-<section class="mosh-aboutUs-area" style="margin-bottom: 100px;">
+<section class="mosh-aboutUs-area" style="margin-bottom: 100px;margin-top: 150px;">
     <div class="container">
         <div class="col-12 col-md-12">
                 <div class="mosh-about-us-content">

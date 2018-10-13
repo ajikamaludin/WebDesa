@@ -99,9 +99,12 @@ function tambahPesan($nama, $email, $subject, $message){
     return false;
 }
 
-function getDokumens(){
-    global $koneksi;
+function getDokumens($param = null){
     $sql = "SELECT * FROM upload_file ORDER BY `id_file` DESC";
+    if($param != null){
+        $sql = "SELECT * FROM upload_file WHERE `nama` LIKE '%$param%' ORDER BY `id_file` DESC";
+    }
+    global $koneksi;
     return $koneksi->query($sql);
 }
 

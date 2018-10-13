@@ -13,7 +13,7 @@ include 'function/init.php';
             <!-- Single Hero Slides -->
                 <div class="justify-content-center">
                     <div class="hero-slide-content text-center">
-                        <img class="slide-img" src="<?= $banner['gambar'] ?>" alt="" style="object-fit: cover;">
+                        <img class="slide-img slide-front" src="<?= $banner['gambar'] ?>" alt="" style="object-fit: cover;">
                     </div>
                 </div>
                 <?php } }?>
@@ -23,6 +23,16 @@ include 'function/init.php';
     <!-- ***** Welcome Area End ***** -->
 
     <!-- ***** Service Area Start ***** -->
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center" style="margin-bottom: 0px !important;">
+                    <h2>Berita</h2>
+                    <hr style="border-width: 5px; ">
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="mosh-more-services-area d-sm-flex clearfix" style="margin-top: 50px;">
     <?php if(getBeritas() != null) {?>
     <?php foreach(getBeritas() as $berita){?>
@@ -45,9 +55,9 @@ include 'function/init.php';
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading text-center">
+                    <div class="section-heading text-center" style="margin-bottom: 40px !important;">
                         <h2>Galeri</h2>
-                        <hr style="height: 10px;">
+                        <hr style="border-width: 5px; ">
                     </div>
                 </div>
             </div>
@@ -70,7 +80,7 @@ include 'function/init.php';
             
             
         </div>
-        <div class="col-12 text-center mt-100" style="margin-bottom: 10%;">
+        <div class="col-12 text-center mt-100" style="margin-bottom: 100px;">
             <a href="galeri.php" class="btn mosh-btn">Lebih Lanjut</a>
         </div>
     </section>
@@ -78,9 +88,9 @@ include 'function/init.php';
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading text-center">
+                    <div class="section-heading text-center" style="margin-bottom: 40px !important;">
                         <h2>Pengumuman</h2>
-                        <hr style="height: 10px;">
+                        <hr style="border-width: 5px; ">
                     </div>
                 </div>
             </div>

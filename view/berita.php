@@ -16,7 +16,11 @@
                                 <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">
                                     <!-- Post Thumb -->
                                     <div class="blog-post-thumb">
-                                        <img src="<?= $berita['gambar'] ?>" alt="">
+                                        <img src="<?= $berita['gambar'] ?>" alt="" style="position: relative; z-index: 1; top: 0px;">
+                                        <div style="width: 100%;height: 75px; background-color: #0254d8; z-index: 2;">
+                                                <!-- Post Title -->
+                                            <h2 style="color: white;padding: 10px 10px;"><?= $berita['judul'] ?></h2>
+                                        </div>
                                     </div>
                                     <!-- Post Meta -->
                                     <div class="post-meta">
@@ -25,8 +29,6 @@
                                             <a href="?kategori=<?= slug(getKategoriName($berita['id_kategori'])) ?>"><?= getKategoriName($berita['id_kategori']) ?></a>
                                         </h6>
                                     </div>
-                                    <!-- Post Title -->
-                                    <h2><?= $berita['judul'] ?></h2>
                                     <!-- Post Excerpt -->
                                     <p><?= cutText($berita['isi']) ?></p>
                                     <!-- Read More btn -->

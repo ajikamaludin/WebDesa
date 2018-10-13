@@ -1,6 +1,11 @@
 <?php 
+ob_start();
 include 'function/init.php';
 $page = 'Dokumen';
+$search = null;
+if(isset($_GET['search'])){
+    $search = $_GET['search'];
+}
 ?>
 <?php
 include 'view/header.php';
@@ -8,10 +13,18 @@ include 'view/header.php';
 <!--BODY START: CONTENT-->
     <section class="mosh-services-area section_padding_100">
         <div class="container">
+            <div class="row"  style="display: flex;">
+                <div class="blog-post-search-widget mb-100"  style="flex: 1;">
+                    <form action="dokumen.php" method="GET">
+                        <input type="search" name="search" id="Search" placeholder="Cari Dokumen ">
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
             <div class="row">
                 <!-- Single Feature Area -->
                 <?php 
-                $dokumens = paginationFront(getDokumens());
+                $dokumens = paginationFront(getDokumens($search));
                 if($dokumens != null){
                 foreach($dokumens as $dokumen) {?>
                 <div class="col-12 col-sm-6 col-md-4">
@@ -24,7 +37,9 @@ include 'view/header.php';
                         </div>
                     </div>
                 </div>
-                <?php } }?>
+                <?php } }else{
+                    header('Location: 404.php');
+                }?>
             </div>
             
             <div class="mosh-pagination-area" style="margin-top: 10px;">

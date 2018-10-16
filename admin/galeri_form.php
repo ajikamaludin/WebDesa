@@ -65,6 +65,9 @@ if(isset($_GET['id'])){
 <?php include 'view/footer_wrapper.php' ?>
 </div>
 <!-- ./wrapper -->
+<script>
+	CKEDITOR.replace('deskripsi');
+</script>
 </body>
 <?php
 include 'view/footer.php';

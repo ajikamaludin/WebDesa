@@ -81,10 +81,15 @@ function getGaleriHeader($limit = 8){
     return $koneksi->query($sql);
 }
 
-function getPengumumanUpdate(){
+function getPengumumanUpdate($now = true){
     global $koneksi;
-    $now = date('Y-m-d');
-    $sql = "SELECT * FROM `pengumuman` WHERE tgl_berakhir >='$now'";
+    if($now == true){
+        $now = date('Y-m-d');
+        $sql = "SELECT * FROM `pengumuman` WHERE tgl_berakhir >='$now'";
+    }else{
+        $sql = "SELECT * FROM `pengumuman`";
+    }
+    
     return $koneksi->query($sql);
 }
 

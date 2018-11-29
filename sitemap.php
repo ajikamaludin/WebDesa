@@ -12,13 +12,16 @@ $berita = getBeritasAll(null);
 
 //galeri
 $galeri = getGaleriHeader(null);
+
 //dokumen
 $dokument = getDokumens();
+
 //pengumuman
-$pengumuman = getPengumumanUpdate();
+$pengumuman = getPengumumanUpdate(false);
+
 //link terkait
 $link = getLinkTerkait();
-//dd($menu);
+
 
 echo "<?xml version='1.0' encoding='UTF-8'?>";
 ?>
@@ -59,9 +62,37 @@ echo "<?xml version='1.0' encoding='UTF-8'?>";
    </url>
 <?php } ?>
 
-<?php foreach($galeri as $ber) {?>
+<?php foreach($galeri as $gal) {?>
   <url>
-      <loc><?= $web.'/berita.php?q='.$ber['slug'] ?></loc>
+      <loc><?= $web.'/galeri.php?q='.$gal['id_galeri'] ?></loc>
+      <title><?= $gal['nama'] ?></title>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+   </url>
+<?php } ?>
+
+<?php foreach($dokument as $doc) {?>
+  <url>
+      <loc><?= $web.$doc['file'] ?></loc>
+      <title><?= $doc['nama'] ?></title>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+   </url>
+<?php } ?>
+
+<?php foreach($pengumuman as $pem) {?>
+  <url>
+      <loc><?= $web ?></loc>
+      <title><?= $pem['pengumuman'] ?></title>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+   </url>
+<?php } ?>
+
+<?php foreach($link as $l) {?>
+  <url>
+      <loc><?= $l['url'] ?></loc>
+      <title><?= $l['nama'] ?></title>
       <changefreq>weekly</changefreq>
       <priority>0.6</priority>
    </url>

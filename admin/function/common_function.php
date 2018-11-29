@@ -21,7 +21,7 @@ function urlPage($string){
     if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80'){
         $protocol = 'https://';
     }
-    return $protocol.$_SERVER['HTTP_HOST'].'/page.php?q='.$string;
+    return $protocol.$_SERVER['HTTP_HOST'].'/page?q='.$string;
 }
 
 function cekSession(){

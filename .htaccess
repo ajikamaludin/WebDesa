@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+RewriteRule ^sitemap$ sitemap.php [L]

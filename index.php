@@ -65,8 +65,8 @@ include 'function/init.php';
 
         <div class="mosh-portfolio">
             <!-- Single gallery Item Start -->
-            <?php if(getGaleriHeader() != null) {?>
-            <?php foreach(getGaleriHeader() as $galeri){?>
+            <?php if(getGaleriHeader(12) != null) {?>
+            <?php foreach(getGaleriHeader(12) as $galeri){?>
             <div class="single_gallery_item gd">
                 <img src="<?= $galeri['gambar'] ?>" alt="">
                 <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">

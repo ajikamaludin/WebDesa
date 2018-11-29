@@ -13,7 +13,8 @@
                             <ul>
                                 <?php $archives = getArchives(); 
                                 if($archives != null){
-                                    foreach($archives as $archive){?>
+                                    foreach($archives as $archive){
+                                        ?>
                                     <li><a href="berita.php?arsip=<?=$archive['slug']?>"><?=$archive['nama']?></a></li>
                                 <?php } }else{ ?>
                                     <li>Tidak Ada Arsip</li>

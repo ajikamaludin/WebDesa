@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 $PATH = dirname(__DIR__);
 include $PATH.'/db/Koneksi.php';
 include $PATH.'/function/function_load.php';
